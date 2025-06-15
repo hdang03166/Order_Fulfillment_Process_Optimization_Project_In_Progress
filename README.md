@@ -2,7 +2,7 @@
 **Process improvement and forecasting analysis using Python, Excel, and Power BI**
 
 ## Overview  
-This project analyzes and optimizes the order fulfillment process using an e-commerce dataset sourced from Kaggle. By leveraging Python for data cleaning and forecasting, Excel (Power Query) for data transformation, and Power BI for interactive dashboards with advanced DAX calculations, this project identifies bottlenecks and opportunities to improve delivery times and customer satisfaction.
+This project analyzes and optimizes the order fulfillment process using an e-commerce dataset sourced from Kaggle. By leveraging Python for data cleaning and forecasting, and Power BI for interactive dashboards with advanced DAX calculations, this project identifies bottlenecks and opportunities to improve delivery times and customer satisfaction.
 
 ## Objective  
 Uncover inefficiencies and forecast key fulfillment metrics, providing actionable recommendations to streamline operations and enhance the customer experience.
@@ -20,13 +20,13 @@ The dataset is organized into two folders, /train/ and /test/, each containing f
 
 - df_Customers.csv: Contains customer identifiers and regional information.
 
-- df_Orders.csv: Captures order-level data including order date, shipping date, delivery date, and order status.
-
 - df_OrderItems.csv: Details the individual products within each order, including product ID, quantity, and price.
 
-- df_Products.csv: Lists product metadata such as category and name.
+- df_Orders.csv: Captures order-level data including order date, shipping date, delivery date, and order status.
 
 - df_Payments.csv: Logs payment information per order, including payment type and amount.
+
+- df_Products.csv: Lists product metadata such as category and name.
 
 For this analysis, both /train/ and /test/ datasets—identical in schema—were merged using Python into a unified dataset to enable complete, end-to-end insights across the full order lifecycle. This consolidated dataset served as the foundation for all ETL processes, analysis, and dashboard visualizations.
 
@@ -34,9 +34,7 @@ For this analysis, both /train/ and /test/ datasets—identical in schema—were
 ## Data Cleaning & Preparation
 - Utilized Python (pandas, numpy) for thorough data cleaning and preprocessing, including handling missing values, formatting dates, and engineering new features such as fulfillment time and delay indicators.
 
-- Performed additional transformations and grouping using Excel Power Query for data inspection and to prepare aggregated datasets for visualization.
-
-- Employed an ETL process across Python and Excel to extract raw data, transform and enrich it, and load clean datasets into Power BI for modeling and dashboard creation.
+- Employed an ETL process to extract raw data, transform and enrich it, and load clean datasets into Power BI for modeling and dashboard creation.
 
 ## Tools & Techniques
 - **Python**: pandas, numpy, matplotlib for data processing and forecasting.

@@ -65,12 +65,12 @@ Order_Fulfillment_Process_Optimization_Project/
 │   │   └── df_Products.csv
 │   ├── merged_cleaned_orders.xlsx
 │   └── merged_cleaned_orders.csv
-├── 2_notebooks/
-│   └── data_cleaning_and_forecasting.ipynb
+├── 2_analysis/
+│   └── ecommerce_data_cleaning_and_forecasting.ipynb
 ├── 3_powerbi/
-│   └── fulfillment_dashboard.pbix
+│   └── Ecommerce_order_supply_chain_dashboard.pbix
 ├── 4_visuals/
-│   └── dashboard_preview.png
+│   └── dashboard_visual.png
 ├── requirements.txt
 ├── .gitignore
 ├── LICENSE

@@ -88,15 +88,15 @@ Dashboard features:
 - Time series analysis of fulfillment times and delays  
 - Forecast visuals for upcoming order volume and resource planning  
 
-## How to Use This Repository  
-- Review raw data under `/1_data/`
-- Explore data cleaning and forecasting in Jupyter Notebook under `/2_notebooks/`  
-- Open the Power BI dashboard file in `/3_powerbi/` using Power BI Desktop  
-- View visual summaries in `/4_visuals/`  
-- Follow instructions in this README for replication or extension  
+## How to Use This Repository
+- Explore raw data under `/1_data/`.
+- Explore data cleaning and forecasting in Jupyter Notebook under `/2_analysis/`.
+- Open the Power BI dashboard file in `/3_powerbi/` using Power BI Desktop.
+- View the dashboard screen under `/4_visuals/` for a quick visual reference.
+- Read this README for project context, methodology, and key insights.
 
 ## Contact
 - [LinkedIn](https://www.linkedin.com/in/hai-dang316)
 - Email: h.dang686@yahoo.com
 
-Note: This project showcases skills in end-to-end data analysis, process improvement, forecasting, and dashboard visualization combining Python, Excel, and Power BI.
+Note: This project showcases skills in end-to-end data analysis, process improvement, forecasting, and dashboard visualization combining Python and Power BI.

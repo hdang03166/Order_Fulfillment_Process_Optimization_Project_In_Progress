@@ -39,7 +39,7 @@ For this analysis, both /train/ and /test/ datasets were merged using Python int
 ## Tools & Techniques
 - **Python**: pandas, numpy, matplotlib for data processing and forecasting.
 
-- *Power BI*: Dashboard creation and DAX for calculated metrics and KPIs.
+- **Power BI**: Dashboard creation and DAX for calculated metrics and KPIs.
 
 - **Jupyter Notebook**: Documenting data cleaning and exploratory analysis.
 

@@ -39,9 +39,7 @@ For this analysis, both /train/ and /test/ datasets—identical in schema—were
 ## Tools & Techniques
 - **Python**: pandas, numpy, matplotlib for data processing and forecasting.
 
-- **Excel**: Power Query for data transformation.
-
-- **Power BI**: Dashboard creation and DAX for calculated metrics and KPIs.
+- *Power BI*: Dashboard creation and DAX for calculated metrics and KPIs.
 
 - **Jupyter Notebook**: Documenting data cleaning and exploratory analysis.
 

@@ -192,3 +192,18 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# Excel autosaves and temp files
+~$*.xls*
+*.xlsb
+*.xlsm
+
+# Power BI temp/cache files
+*.pbip
+*.pbit
+*.tmp
+*.bak
+
+# System files
+.DS_Store
+Thumbs.db

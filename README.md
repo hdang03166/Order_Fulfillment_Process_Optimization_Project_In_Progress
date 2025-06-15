@@ -1,5 +1,5 @@
 # Order Fulfillment Process Optimization Project
-**Process improvement and forecasting analysis using Python, Excel, and Power BI**
+**Process improvement and forecasting analysis using Python and Power BI**
 
 ## Overview  
 This project analyzes and optimizes the order fulfillment process using an e-commerce dataset sourced from Kaggle. By leveraging Python for data cleaning and forecasting, and Power BI for interactive dashboards with advanced DAX calculations, this project identifies bottlenecks and opportunities to improve delivery times and customer satisfaction.
@@ -93,7 +93,7 @@ Dashboard features:
 - Explore data cleaning and forecasting in Jupyter Notebook under `/2_analysis/`.
 - Open the Power BI dashboard file in `/3_powerbi/` using Power BI Desktop.
 - View the dashboard screen under `/4_visuals/` for a quick visual reference.
-- Read this README for project context, methodology, and key insights.
+- Read this README for project context, methodology and key insights.
 
 ## Contact
 - [LinkedIn](https://www.linkedin.com/in/hai-dang316)

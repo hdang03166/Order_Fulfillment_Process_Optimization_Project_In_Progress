@@ -5,7 +5,7 @@
 This project analyzes and optimizes the order fulfillment process using an e-commerce dataset sourced from Kaggle. By leveraging Python for data cleaning and forecasting, and Power BI for interactive dashboards with advanced DAX calculations, this project identifies bottlenecks and opportunities to improve delivery times and customer satisfaction.
 
 ## Objective  
-Uncover inefficiencies and forecast key fulfillment metrics, providing actionable recommendations to streamline operations and enhance the customer experience.
+Identify inefficiencies and forecast key fulfillment metrics, providing actionable recommendations to streamline operations and enhance the customer experience.
 
 ## Data Source
 The dataset used in this project is publicly available on Kaggle:

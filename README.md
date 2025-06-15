@@ -84,9 +84,9 @@ Order_Fulfillment_Process_Optimization_Project/
 An interactive Power BI dashboard visualizes fulfillment KPIs, bottlenecks, and forecasted trends. It leverages DAX for dynamic calculations such as average delay per stage, percentage of on-time deliveries, and rolling forecast metrics.
 
 Dashboard features:
-- Drill-down by shipping method, product category, and region  
-- Time series analysis of fulfillment times and delays  
-- Forecast visuals for upcoming order volume and resource planning  
+- Drill-down by shipping method, product category, and region.
+- Time series analysis of fulfillment times and delays.
+- Forecast visuals for upcoming order volume and resource planning.
 
 ## How to Use This Repository
 - Explore raw data under `/1_data/`.

@@ -28,7 +28,7 @@ The dataset is organized into two folders, /train/ and /test/, each containing f
 
 - df_Products.csv: Lists product metadata such as category and name.
 
-For this analysis, both /train/ and /test/ datasets—identical in schema—were merged using Python into a unified dataset to enable complete, end-to-end insights across the full order lifecycle. This consolidated dataset served as the foundation for all ETL processes, analysis, and dashboard visualizations.
+For this analysis, both /train/ and /test/ datasets were merged using Python into a unified dataset to enable complete, end-to-end insights across the full order lifecycle. This consolidated dataset served as the foundation for all ETL processes, analysis, and dashboard visualizations.
 
 
 ## Data Cleaning & Preparation

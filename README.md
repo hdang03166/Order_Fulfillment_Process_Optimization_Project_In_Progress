@@ -41,7 +41,7 @@ For this analysis, both /train/ and /test/ datasets were merged using Python int
 
 - **Power BI**: Dashboard creation and DAX for calculated metrics and KPIs.
 
-- **Jupyter Notebook**: Documenting data cleaning and exploratory analysis.
+- **Jupyter Notebook** (via Kaggle): Documenting data cleaning and exploratory analysis.
 
 ## Project Structure
 ```

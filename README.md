@@ -1,44 +1,106 @@
-# Order Fulfillment Process Optimization
+# Order Fulfillment Process Optimization Project
+**Process improvement and forecasting analysis using Python, Excel, and Power BI**
 
-## Project Overview
-This project aims to analyze and optimize the order fulfillment process for an e-commerce dataset. Using Python for data cleaning and preprocessing, Excel (Power Query) for data preparation, and Power BI (with DAX) for building interactive dashboards, the project delivers actionable insights to improve operational efficiency and customer satisfaction.
+## Overview  
+This project analyzes and optimizes the order fulfillment process using an e-commerce dataset sourced from Kaggle. By leveraging Python for data cleaning and forecasting, Excel (Power Query) for data transformation, and Power BI for interactive dashboards with advanced DAX calculations, this project identifies bottlenecks and opportunities to improve delivery times and customer satisfaction.
 
-## Motivation
-Efficient order fulfillment is critical for e-commerce success. Delays or bottlenecks in shipping and delivery impact customer experience and business costs. This project demonstrates a real-world approach to process improvement using data analytics and visualization tools.
+## Objective  
+Uncover inefficiencies and forecast key fulfillment metrics, providing actionable recommendations to streamline operations and enhance the customer experience.
 
-## Dataset
-The dataset is sourced from [Kaggle: E-Commerce Order Dataset](https://www.kaggle.com/datasets) (provide exact link when you decide). It contains order dates, shipping dates, delivery dates, customer and product details, and status indicators.
+## Data Source
+The dataset used in this project is publicly available on Kaggle:
+[Ecommerce Order & Supply Chain Dataset](https://www.kaggle.com/datasets/bytadit/ecommerce-order-dataset/data)
 
-## Tech Stack
-- **Python:** pandas, numpy for data cleaning and feature engineering
-- **Excel:** Power Query for data preparation and inspection
-- **Power BI:** Dashboard creation with DAX calculations and visualizations
-- **Tools:** Jupyter Notebook, Excel, Power BI Desktop
+This dataset contains order-level information such as order dates, shipping and delivery dates, customer and product details, shipping status, and other relevant fields. It provides a comprehensive view of the fulfillment pipeline from order placement through delivery, enabling detailed analysis of process timelines and delays.
+
+License: Provided under Kaggle Terms of Use; all rights belong to the original author.
+
+## Content Description
+The dataset is organized into two folders, /train/ and /test/, each containing five CSV files that represent key entities involved in the e-commerce order fulfillment pipeline:
+
+- df_Customers.csv: Contains customer identifiers and regional information.
+
+- df_Orders.csv: Captures order-level data including order date, shipping date, delivery date, and order status.
+
+- df_OrderItems.csv: Details the individual products within each order, including product ID, quantity, and price.
+
+- df_Products.csv: Lists product metadata such as category and name.
+
+- df_Payments.csv: Logs payment information per order, including payment type and amount.
+
+For this analysis, both /train/ and /test/ datasets—identical in schema—were merged using Python into a unified dataset to enable complete, end-to-end insights across the full order lifecycle. This consolidated dataset served as the foundation for all ETL processes, analysis, and dashboard visualizations.
+
+
+## Data Cleaning & Preparation
+- Utilized Python (pandas, numpy) for thorough data cleaning and preprocessing, including handling missing values, formatting dates, and engineering new features such as fulfillment time and delay indicators.
+
+- Performed additional transformations and grouping using Excel Power Query for data inspection and to prepare aggregated datasets for visualization.
+
+- Employed an ETL process across Python and Excel to extract raw data, transform and enrich it, and load clean datasets into Power BI for modeling and dashboard creation.
+
+## Tools & Techniques
+- **Python**: pandas, numpy, matplotlib for data processing and forecasting.
+
+- **Excel**: Power Query for data transformation.
+
+- **Power BI**: Dashboard creation and DAX for calculated metrics and KPIs.
+
+- **Jupyter Notebook**: Documenting data cleaning and exploratory analysis.
 
 ## Project Structure
-order-fulfillment-process-optimization/
-│
-├── data/
-│ ├── raw_data.csv
-│ └── cleaned_data.xlsx
-│
-├── notebooks/
-│ └── data_cleaning.ipynb
-│
-├── powerbi/
-│ └── order_fulfillment_dashboard.pbix
-│
-├── visuals/
-│ └── dashboard_screenshot.png
-│
-├── README.md
+```
+Order_Fulfillment_Process_Optimization_Project/
+├── 1_data/
+│   ├── test/
+│   │   ├── df_Customers.csv
+│   │   ├── df_OrderItems.csv
+│   │   ├── df_Orders.csv
+│   │   ├── df_Payments.csv
+│   │   └── df_Products.csv
+│   ├── train/
+│   │   ├── df_Customers.csv
+│   │   ├── df_OrderItems.csv
+│   │   ├── df_Orders.csv
+│   │   ├── df_Payments.csv
+│   │   └── df_Products.csv
+│   ├── merged_cleaned_orders.xlsx
+│   └── merged_cleaned_orders.csv
+├── 2_notebooks/
+│   └── data_cleaning_and_forecasting.ipynb
+├── 3_powerbi/
+│   └── fulfillment_dashboard.pbix
+├── 4_visuals/
+│   └── dashboard_preview.png
 ├── requirements.txt
+├── .gitignore
 ├── LICENSE
-└── .gitignore
+└── README.md
+```
 
+## Key Questions & Insights  
+- What are the average and distribution of fulfillment times across different shipping methods?  
+- Which stages in the process (order processing, shipping, last-mile delivery) contribute most to delays?  
+- How do product types or regions affect fulfillment efficiency?  
+- Forecast trends in order volume and fulfillment times to predict peak periods and capacity needs.  
+- Recommendations for process improvements based on data-driven insights.
 
-## Planned Deliverables
-- Data cleaning and preprocessing using Python  
-- Data transformation using Excel Power Query  
-- Interactive Power BI dashboard with key metrics and process insights  
-- Documentation and visual summaries  
+## Power BI Dashboard  
+An interactive Power BI dashboard visualizes fulfillment KPIs, bottlenecks, and forecasted trends. It leverages DAX for dynamic calculations such as average delay per stage, percentage of on-time deliveries, and rolling forecast metrics.
+
+Dashboard features:
+- Drill-down by shipping method, product category, and region  
+- Time series analysis of fulfillment times and delays  
+- Forecast visuals for upcoming order volume and resource planning  
+
+## How to Use This Repository  
+- Review raw data under `/1_data/`
+- Explore data cleaning and forecasting in Jupyter Notebook under `/2_notebooks/`  
+- Open the Power BI dashboard file in `/3_powerbi/` using Power BI Desktop  
+- View visual summaries in `/4_visuals/`  
+- Follow instructions in this README for replication or extension  
+
+## Contact
+- [LinkedIn](https://www.linkedin.com/in/hai-dang316)
+- Email: h.dang686@yahoo.com
+
+Note: This project showcases skills in end-to-end data analysis, process improvement, forecasting, and dashboard visualization combining Python, Excel, and Power BI.

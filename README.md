@@ -9,7 +9,7 @@ Identify inefficiencies and forecast key fulfillment metrics, providing actionab
 
 ## Data Source
 The dataset used in this project is publicly available on Kaggle:
-[Ecommerce Order & Supply Chain Dataset](https://www.kaggle.com/datasets/bytadit/ecommerce-order-dataset/data)
+[Ecommerce Order & Supply Chain Dataset by Aditya Bagus Pratama](https://www.kaggle.com/datasets/bytadit/ecommerce-order-dataset/data)
 
 This dataset contains order-level information such as order dates, shipping and delivery dates, customer and product details, shipping status, and other relevant fields. It provides a comprehensive view of the fulfillment pipeline from order placement through delivery, enabling detailed analysis of process timelines and delays.
 

@@ -1,23 +1,23 @@
 # Order Fulfillment Process Optimization Project
 
 ## Overview
-This project performs an end-to-end analysis using an e-commerce order and supply chain dataset to uncover bottlenecks, highlight inefficiencies, and deliver actionable business recommendations. It applies ETL processes and exploratory data analysis (EDA) using Python and Excel, advanced SQL queries to extract insights, and a dynamic Power BI dashboard to visualize key KPIs, DAX measures, and forecasting elements for data-driven decision-making.
+This project shows how orders move through an e-commerce system, from when a customer places an order to when it’s delivered. This end-to-end analysis is used to discover trends, track important performance numbers (KPIs), and suggest improvements. The data is cleaned and explored using Python and Excel, applying ETL processes and exploratory data analysis. Advanced SQL queries are used to extract insights, which are then shown in a Power BI dashboard with visuals, DAX calculations, and basic forecasting to assit with future planning.
 
-## Objective  
-Identify inefficiencies in order processing and delivery, forecast key fulfillment metrics, and provide actionable insights to optimize operations and enhance the overall customer experience.
-
-# Note: The work completed above is finalized. The remaining sections of the project are currently in progress.
+## Objective
+Find problems in the order and delivery process, forecast key metrics like order volume, and provide actionable insights to optimize operations and improve the overall customer experience.
 
 ## Data Source
 The dataset used in this project is publicly available on Kaggle:
 [Ecommerce Order & Supply Chain Dataset by Aditya Bagus Pratama](https://www.kaggle.com/datasets/bytadit/ecommerce-order-dataset/data)
 
-This dataset contains order-level information such as order dates, shipping and delivery dates, customer and product details, shipping status, and other relevant fields. It provides a comprehensive view of the fulfillment pipeline from order placement through delivery, enabling detailed analysis of process timelines and delays.
+This dataset provides a view of the fulfillment pipeline from order placement through delivery. It includes order-level information such as order dates, shipping and delivery timestamps, customer and product details, shipping status, and other relevant fields. The dataset contains a train and test folder, however, only the train folder was used in this project to simplify analysis and focus on the main data.
 
 License: Provided under Kaggle Terms of Use; all rights belong to the original author.
 
+# Note: The sections above are finalized. The remaining parts of the project are currently in progress.
+
 ## Content Description
-The dataset is organized into two folders, /train/ and /test/, each containing five CSV files that represent key entities involved in the e-commerce order fulfillment pipeline:
+The train folder contains five CSV files that represent key entities involved in the e-commerce order fulfillment pipeline:
 
 - df_Customers.csv: Contains customer identifiers and regional information.
 

@@ -32,6 +32,35 @@ The train folder contains five CSV files that represent key entities involved in
 
 
 ## Data Cleaning & Preparation
+General Data Formatting Updates
+- Standardized all ID columns (customer_id, product_id, order_id, seller_id) to uppercase across all datasets for readability and consistency.
+
+- Formatted monetary columns in orderitems and payments to display two decimal places for through clarity.
+
+- Cleaned product category names for spelling and grammar consistency.
+
+- - Converted these columns to static values to improve Excel performance with large datasets (~89,000 rows).
+
+Exploratory Data Analysis of Cleaned Orders Sheet
+- Created 5 helper columns (H to L) to flag missing or inconsistent timestamps (order_delivered_timestamp, order_approved_at) and count missing values.
+
+- Conditional formatting applied to highlights blank cells inside key columns in orange fill and outline boarder.
+
+Exploratory Data Analysis of Cleaned Products Sheet
+- Created 5 helper columns (G to K) for exact duplicate detection (concatenation_key), duplicate labeling, and counting missing values in key fields. The calculated numbers are different due to 13 duplicates rows were deleted to not interfer with KPIs.
+
+- Corrected grammar and standardized product_category_name entries:
+  “perfumery” → “perfumes”
+
+  “telephony” → “telephones”
+
+  “home_confort” → “home_comfort”
+
+  “fixed_telephony” → “fixed_telephones”
+
+  “fashion_female_clothing” → “fashion_female_clothing”
+
+- Conditional formatting applied to highlight missing categories and product measurements in orange fill and outline boarder.
 
 
 ## Tools & Techniques

@@ -74,6 +74,10 @@ Exploratory Data Analysis of Cleaned Products Sheet
 - **Microsoft Excel**: Showcased ETL processes and validation, using Power Query, formulas (e.g., COUNTBLANK, IF), and conditional formatting.
 - **Power BI**: Created dashboard visualization and DAX calculations for metrics and KPIs.
 
+---
+# Note to self: The sections above have been updated; the sections below still need modification.
+---
+
 ## Project Structure
 ```
 Order_Fulfillment_Process_Optimization_Project/

@@ -1,8 +1,8 @@
 # Order Fulfillment Process Optimization Project
-## Note: I am currently working on this self-initiated project. I have already completed the cleaning and eda, I am about to start on Power BI. I will post the completed version on LinkedIn soon—stay tuned!
+## Note: I am currently working on this self-initiated project. I have completed the cleaning and EDA phases and am about to start building the Power BI dashboard. I will post the completed version on LinkedIn soon—stay tuned!
 
 ## Overview
-This project analyzes how orders move through an e-commerce system, from customer order placement to delivery. The end-to-end analysis discovers trends, tracks key performance indicators, and suggests improvements. Data is explored using Python, cleaned and changed using Excel, applying ETL processes and exploratory data analysis. Advanced SQL queries extract insights that are visualized in a Power BI dashboard with visuals, DAX calculations, and basic forecasting to assist future planning.
+This project analyzes how orders move through an e-commerce system, from customer order placement to delivery. The end-to-end analysis discovers trends, tracks key performance indicators, and suggests improvements. Data is explored using Python and cleaned with Excel, applying ETL processes and exploratory data analysis. Advanced SQL queries extract insights that are visualized in a Power BI dashboard with visuals, DAX calculations, and basic forecasting to delivery business insights.
 
 ## Objective
 Identify problems in the order and delivery process, forecast key metrics such as order volume, and provide actionable insights to optimize operations and enhance customer experience.
@@ -21,25 +21,25 @@ The train folder contains five CSV files that represent key entities involved in
 
 - df_Customers.csv: Contains customer identifiers and regional information.
 
-- df_OrderItems.csv: Details the individual products within each order, including seller ID, price and shipping charges.
+- df_OrderItems.csv: Details the individual products within each order, including seller ID, price, and shipping charges.
 
 - df_Orders.csv: Contains data such as order ID, order status, and shipping and delivery dates.
 
-- df_Payments.csv: Logs payment information per order, including payment type, installments and amount.
+- df_Payments.csv: Logs payment information per order, including payment type, installments, and amount.
 
-- df_Products.csv: Lists product data such as category name and physical measuremeants.
+- df_Products.csv: Lists product data such as category name and physical measurements.
 
 
 
 ## Data Cleaning & Preparation
 General Data Formatting Updates
-- Standardized all ID columns (customer_id, product_id, order_id, seller_id) to uppercase across all datasets for readability and consistency.
+- Standardized all ID columns (`customer_id`, `product_id`, `order_id`, `seller_id`) to uppercase across all datasets for readability and consistency.
 
-- Formatted monetary columns in orderitems and payments to display two decimal places for through clarity.
+- Formatted monetary columns in `orderitems` and `payments` to display two decimal places for clarity.
 
 - Cleaned product category names for spelling and grammar consistency.
 
-- - Converted these columns to static values to improve Excel performance with large datasets (~89,000 rows).
+- Converted helper columns to static values to improve Excel performance with large datasets (~89,000 rows).
 
 Exploratory Data Analysis of Cleaned Orders Sheet
 - Created 5 helper columns (H to L) to flag missing or inconsistent timestamps (order_delivered_timestamp, order_approved_at) and count missing values.
@@ -49,7 +49,7 @@ Exploratory Data Analysis of Cleaned Orders Sheet
 Exploratory Data Analysis of Cleaned Products Sheet
 - Created 5 helper columns (G to K) for exact duplicate detection (concatenation_key), duplicate labeling, and counting missing values in key fields. The calculated numbers are different due to 13 duplicates rows were deleted to not interfer with KPIs.
 
-- Corrected grammar and standardized product_category_name entries:
+- Corrected grammar and standardized `product_category_name` entries:
   “perfumery” → “perfumes”
 
   “telephony” → “telephones”
@@ -60,14 +60,19 @@ Exploratory Data Analysis of Cleaned Products Sheet
 
   “fashion_female_clothing” → “fashion_female_clothing”
 
-- Conditional formatting applied to highlight missing categories and product measurements in orange fill and outline boarder.
+- Conditional Formatting:
+Two rules were applied for visibility in orange fill:
+
+  Highlight cells in Column F (`order_delivered_timestamp`) where order_status = "delivered" and the timestamp is blank.
+
+  Highlight cells in Column E (`order_approved_at`) that are blank or contain only spaces.
 
 
 ## Tools & Techniques
-- **Kaggle Notebook**: Utilize Python to load files, preview data, and identify missing values and duplicates.
-- **SQL Server Express & SSMS**: Write advance SQL queries, demonstrating core project work and KPIs.
-- **Microsoft Excel**: Show ETL processes and validation, using Power Query, forumlas (e.g., COUNTBLANK, IF), and conditional formatting.
-- **Power BI**: Dashboard visualization and DAX for calculated metrics and KPIs.
+- **Kaggle Notebook**: Utilized Python to load files, preview data, and identify missing values and duplicates.
+- **SQL Server Express & SSMS**: Wrote advanced SQL queries, demonstrating core project work and KPIs.
+- **Microsoft Excel**: Showcased ETL processes and validation, using Power Query, formulas (e.g., COUNTBLANK, IF), and conditional formatting.
+- **Power BI**: Created dashboard visualization and DAX calculations for metrics and KPIs.
 
 
 ## Project Structure

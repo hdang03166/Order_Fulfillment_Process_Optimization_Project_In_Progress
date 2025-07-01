@@ -2,7 +2,7 @@
 ## Note: I am currently working on this self-initiated project. I have completed the cleaning and EDA phases and am about to start building the Power BI dashboard. I will post the completed version on LinkedIn soon—stay tuned!
 
 ## Overview
-This project analyzes how orders move through an e-commerce system, from customer order placement to delivery. The end-to-end analysis discovers trends, tracks key performance indicators, and suggests improvements. Data is explored using Python and cleaned with Excel, applying ETL processes and exploratory data analysis. Advanced SQL queries extract insights that are visualized in a Power BI dashboard with visuals, DAX calculations, and basic forecasting to delivery business insights.
+This project analyzes how orders move through an e-commerce system, from customer order placement to delivery. The end-to-end analysis discovers trends, tracks key performance indicators, and suggests improvements. Data is explored using Python and cleaned with Excel, applying ETL processes and exploratory data analysis. Advanced SQL queries extract insights that are visualized in a Power BI dashboard with visuals, DAX calculations, and basic forecasting to deliver business insights.
 
 ## Objective
 Identify problems in the order and delivery process, forecast key metrics such as order volume, and provide actionable insights to optimize operations and enhance customer experience.
@@ -44,28 +44,28 @@ General Data Formatting Updates
 Exploratory Data Analysis of Cleaned Orders Sheet
 - Created 5 helper columns (H to L) to flag missing or inconsistent timestamps (order_delivered_timestamp, order_approved_at) and count missing values.
 
-- Conditional formatting applied to highlights blank cells inside key columns in orange fill and outline boarder.
+- Applied conditional formatting with orange fill and solid outline border for visibility.
 
 Exploratory Data Analysis of Cleaned Products Sheet
-- Created 5 helper columns (G to K) for exact duplicate detection (concatenation_key), duplicate labeling, and counting missing values in key fields. The calculated numbers are different due to 13 duplicates rows were deleted to not interfer with KPIs.
+- Created 5 helper columns (G to K) for exact duplicate detection (concatenation_key), duplicate labeling, and counting missing values in key fields. The calculated numbers are different because 13 duplicates rows were deleted to not interfer with KPIs.
 
 - Corrected grammar and standardized `product_category_name` entries:
-  “perfumery” → “perfumes”
 
-  “telephony” → “telephones”
+  - “perfumery” → “perfumes”
 
-  “home_confort” → “home_comfort”
+  - “telephony” → “telephones”
 
-  “fixed_telephony” → “fixed_telephones”
+  - “home_confort” → “home_comfort”
 
-  “fashion_female_clothing” → “fashion_female_clothing”
+  - “fixed_telephony” → “fixed_telephones”
 
-- Conditional Formatting:
-Two rules were applied for visibility in orange fill:
+  - “fashion_female_clothing” → “fashion_female_clothing”
 
-  Highlight cells in Column F (`order_delivered_timestamp`) where order_status = "delivered" and the timestamp is blank.
+- Applied conditional formatting with orange fill and solid outline border for visibility:
 
-  Highlight cells in Column E (`order_approved_at`) that are blank or contain only spaces.
+  - Highlight cells in Column F (`order_delivered_timestamp`) where order_status = "delivered" and the timestamp is blank.
+
+  - Highlight cells in Column E (`order_approved_at`) that are blank or contain only spaces.
 
 
 ## Tools & Techniques
@@ -73,7 +73,6 @@ Two rules were applied for visibility in orange fill:
 - **SQL Server Express & SSMS**: Wrote advanced SQL queries, demonstrating core project work and KPIs.
 - **Microsoft Excel**: Showcased ETL processes and validation, using Power Query, formulas (e.g., COUNTBLANK, IF), and conditional formatting.
 - **Power BI**: Created dashboard visualization and DAX calculations for metrics and KPIs.
-
 
 ## Project Structure
 ```

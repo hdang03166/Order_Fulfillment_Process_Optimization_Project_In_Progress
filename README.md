@@ -1,48 +1,45 @@
 # Order Fulfillment Process Optimization Project
+## Note: I am currently working on this self-initiated project. I have already completed the cleaning and eda, I am about to start on Power BI. I will post the completed version on LinkedIn soon—stay tuned!
 
 ## Overview
-This project shows how orders move through an e-commerce system, from when a customer places an order to when it’s delivered. This end-to-end analysis is used to discover trends, track important performance numbers (KPIs), and suggest improvements. The data is cleaned and explored using Python and Excel, applying ETL processes and exploratory data analysis. Advanced SQL queries are used to extract insights, which are then shown in a Power BI dashboard with visuals, DAX calculations, and basic forecasting to assit with future planning.
+This project analyzes how orders move through an e-commerce system, from customer order placement to delivery. The end-to-end analysis discovers trends, tracks key performance indicators, and suggests improvements. Data is explored using Python, cleaned and changed using Excel, applying ETL processes and exploratory data analysis. Advanced SQL queries extract insights that are visualized in a Power BI dashboard with visuals, DAX calculations, and basic forecasting to assist future planning.
 
 ## Objective
-Find problems in the order and delivery process, forecast key metrics like order volume, and provide actionable insights to optimize operations and improve the overall customer experience.
+Identify problems in the order and delivery process, forecast key metrics such as order volume, and provide actionable insights to optimize operations and enhance customer experience.
 
 ## Data Source
 The dataset used in this project is publicly available on Kaggle:
 [Ecommerce Order & Supply Chain Dataset by Aditya Bagus Pratama](https://www.kaggle.com/datasets/bytadit/ecommerce-order-dataset/data)
 
-This dataset provides a view of the fulfillment pipeline from order placement through delivery. It includes order-level information such as order dates, shipping and delivery timestamps, customer and product details, shipping status, and other relevant fields. The dataset contains a train and test folder, however, only the train folder was used in this project to simplify analysis and focus on the main data.
+It covers the fulfillment pipeline from order placement through delivery, including order-level data, shipping and delivery timestamps, customer and product details, shipping status, and more. Only the train folder was used for this project to simplify analysis.
 
 License: Provided under Kaggle Terms of Use; all rights belong to the original author.
 
-# Note: The sections above are finalized. The remaining parts of the project are currently in progress.
 
 ## Content Description
 The train folder contains five CSV files that represent key entities involved in the e-commerce order fulfillment pipeline:
 
 - df_Customers.csv: Contains customer identifiers and regional information.
 
-- df_OrderItems.csv: Details the individual products within each order, including product ID, quantity, and price.
+- df_OrderItems.csv: Details the individual products within each order, including seller ID, price and shipping charges.
 
-- df_Orders.csv: Captures order-level data including order date, shipping date, delivery date, and order status.
+- df_Orders.csv: Contains data such as order ID, order status, and shipping and delivery dates.
 
-- df_Payments.csv: Logs payment information per order, including payment type and amount.
+- df_Payments.csv: Logs payment information per order, including payment type, installments and amount.
 
-- df_Products.csv: Lists product metadata such as category and name.
+- df_Products.csv: Lists product data such as category name and physical measuremeants.
 
-For this analysis, both /train/ and /test/ datasets were merged using Python into a unified dataset to enable complete, end-to-end insights across the full order lifecycle. This consolidated dataset served as the foundation for all ETL processes, analysis, and dashboard visualizations.
 
 
 ## Data Cleaning & Preparation
-- Utilized Python (pandas, numpy) for thorough data cleaning and preprocessing, including handling missing values, formatting dates, and engineering new features such as fulfillment time and delay indicators.
 
-- Employed an ETL process to extract raw data, transform and enrich it, and load clean datasets into Power BI for modeling and dashboard creation.
 
 ## Tools & Techniques
-- **Python**: pandas, numpy, matplotlib for data processing and forecasting.
+- **Kaggle Notebook**: Utilize Python to load files, preview data, and identify missing values and duplicates.
+- **SQL Server Express & SSMS**: Write advance SQL queries, demonstrating core project work and KPIs.
+- **Microsoft Excel**: Show ETL processes and validation, using Power Query, forumlas (e.g., COUNTBLANK, IF), and conditional formatting.
+- **Power BI**: Dashboard visualization and DAX for calculated metrics and KPIs.
 
-- **Power BI**: Dashboard creation and DAX for calculated metrics and KPIs.
-
-- **Jupyter Notebook** (via Kaggle): Documenting data cleaning and exploratory analysis.
 
 ## Project Structure
 ```

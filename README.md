@@ -44,36 +44,36 @@ General Data Formatting Updates
 Exploratory Data Analysis of Cleaned Orders Sheet
 - Added 5 helper columns (H to L) to identify data quality issues and assist in KPI calculations:
 
-  - Created order_status_timestamp_issue (Column H) to flag rows where order_status = "delivered" but order_delivered_timestamp is missing.
+  - order_status_timestamp_issue (Column H): Flags rows where `order_statu`s = "delivered" but `order_delivered_timestamp` is missing.
 
-  - Created count_timestamp_issue (Column I) to count total rows with delivery timestamp issues.
+  - count_timestamp_issue (Column I): Counts total rows with delivery timestamp issues flagged in Column H.
 
-  - Created order_approved_flag (Column J) to flag missing order_approved_at timestamps.
+  - order_approved_flag (Column J): Flags missing order_approved_at timestamps.
 
-  - Created missing_order_approved (Column K) to count total missing approval timestamps.
+  - missing_order_approved (Column K): Counts total missing approval timestamps flagged in Column J.
 
-  - Created missing_delivered_timestamp (Column L) to count total missing delivery timestamps.
+  - missing_delivered_timestamp (Column L): Counts total missing delivery timestamps.
 
 - Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
 
-  - Highlighted cells in Column F (order_delivered_timestamp) where order_status = "delivered" but the timestamp is blank (=AND($C2="delivered", ISBLANK($F2))).
+  - Highlighted cells in Column F (`order_delivered_timestamp`) where `order_status` = "delivered" but the timestamp is blank using (=AND($C2="delivered", ISBLANK($F2))).
 
-  - Highlighted all blank cells in Column F (order_delivered_timestamp) (=ISBLANK($F2)).
+  - Highlighted all blank cells in Column F (`order_delivered_timestamp`) using (=ISBLANK($F2)).
 
-  - Highlighted cells in Column E (order_approved_at) where the helper column J (order_approved_flag) marks the value as "Missing" (=$J2="Missing").
+  - Highlighted cells in Column E (`order_approved_at`) where the helper column J (`order_approved_flag`) marks the value as "Missing" using (=$J2="Missing").
 
 Exploratory Data Analysis of Cleaned Products Sheet
-- Added 5 helper columns (G to K) to improve data quality checks and support KPI calculations:
+- Added 5 helper columns (G to K) to identify data quality issues and assist in KPI calculations:
 
-  - Concatenation Key (Column G): Combined multiple columns into a single key to detect exact duplicate rows.
+  - concatenation_key (Column G): Combined multiple columns into a single key to detect exact duplicate rows.
 
-  - Duplicate Label (Column H): Flags rows as "Duplicate" or "Unique" based on the concatenation key.
+  - duplicate_label (Column H): Flags rows as "Duplicate" or "Unique" based on the concatenation key.
 
-  - Total Duplicates Count (Column I): Counts how many duplicate rows exist in the dataset.
+  - total_duplicates Count (Column I): Counts how many duplicate rows exist in the dataset.
 
-  - Missing Values Count (Column J): Counts the number of missing values across key product columns for each row.
+  - missing_values Count (Column J): Counts the number of missing values across key product columns for each row.
 
-  - Data Quality Flag (Column K): Marks rows with critical missing data or inconsistencies for easier filtering.
+  - data_quality_flag (Column K): Marks rows with critical missing data or inconsistencies for easier filtering.
 
 - Deleted 13 exact duplicate rows to avoid skewing KPIs and analyses.
 

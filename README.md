@@ -41,7 +41,7 @@ General Data Formatting Updates
 
 - Converted helper columns to static values to improve Excel performance with large datasets (~89,000 rows).
 
----
+<br>
 
 Exploratory Data Analysis of Cleaned Orders Sheet
 - Added 5 helper columns (H to L) to identify data quality issues and assist in KPI calculations:
@@ -64,7 +64,7 @@ Exploratory Data Analysis of Cleaned Orders Sheet
 
   - Highlighted cells in Column E (`order_approved_at`) where the helper column J (`order_approved_flag`) marks the value as "Missing" using =$J2="Missing".
 
----
+<br>
 
 Exploratory Data Analysis of Cleaned Products Sheet
 - Added 5 helper columns (G to K) to identify data quality issues and assist in KPI calculations:

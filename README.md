@@ -91,7 +91,7 @@ Exploratory Data Analysis of Cleaned Products Sheet
 
   - “fixed_telephony” → “fixed_telephones”
 
-  - “fashion_female_clothing” → “fashion_female_clothing”
+  - “fashio_female_clothing” → “fashion_female_clothing”
 
 - Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
 

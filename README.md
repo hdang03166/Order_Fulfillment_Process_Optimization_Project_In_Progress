@@ -41,14 +41,16 @@ General Data Formatting Updates
 
 - Converted helper columns to static values to improve Excel performance with large datasets (~89,000 rows).
 
+---
+
 Exploratory Data Analysis of Cleaned Orders Sheet
 - Added 5 helper columns (H to L) to identify data quality issues and assist in KPI calculations:
 
-  - order_status_timestamp_issue (Column H): Flags rows where `order_statu`s = "delivered" but `order_delivered_timestamp` is missing: =IF(AND($C2="delivered", ISBLANK($F2)), "Missing Delivered Timestamp", "OK")
+  - order_status_timestamp_issue (Column H): Flags rows where `order_status` = "delivered" but `order_delivered_timestamp` is missing: =IF(AND($C2="delivered", ISBLANK($F2)), "Missing Delivered Timestamp", "OK")
 
   - count_timestamp_issue (Column I): Counts total rows with delivery timestamp issues flagged in Column H: =COUNTIF(H2:H89317, "Missing Delivered Timestamp")
 
-  - order_approved_flag (Column J): Flags missing order_approved_at timestamps: =COUNTIF(H2:H89317, "Missing Delivered Timestamp")
+  - order_approved_flag (Column J): Flags missing order_approved_at timestamps: =IF(ISBLANK(E2), "Missing", "Present")
 
   - missing_order_approved (Column K): Counts total missing approval timestamps flagged in Column J: =COUNTIF(J2:J89317, "Missing")
 
@@ -56,12 +58,13 @@ Exploratory Data Analysis of Cleaned Orders Sheet
 
 - Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
 
-  - Highlighted cells in Column F (`order_delivered_timestamp`) where `order_status` = "delivered" but the timestamp is blank using (=AND($C2="delivered", ISBLANK($F2))).
+  - Highlighted cells in Column F (`order_delivered_timestamp`) where `order_status` = "delivered" but the timestamp is blank using(=AND($C2="delivered", ISBLANK($F2)).
 
-  - Highlighted all blank cells in Column F (`order_delivered_timestamp`) using (=ISBLANK($F2)).
+  - Highlighted all blank cells in Column F (`order_delivered_timestamp`) using =ISBLANK($F2).
 
-  - Highlighted cells in Column E (`order_approved_at`) where the helper column J (`order_approved_flag`) marks the value as "Missing" using (=$J2="Missing").
+  - Highlighted cells in Column E (`order_approved_at`) where the helper column J (`order_approved_flag`) marks the value as "Missing" using =$J2="Missing".
 
+---
 
 Exploratory Data Analysis of Cleaned Products Sheet
 - Added 5 helper columns (G to K) to identify data quality issues and assist in KPI calculations:
@@ -92,7 +95,7 @@ Exploratory Data Analysis of Cleaned Products Sheet
 
 - Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
 
-  -  Highlighted cells in Column B (`product_category_name`) using =ISBLANK(B2).
+  - Highlighted cells in Column B (`product_category_name`) using =ISBLANK(B2).
 
   - Highlighted cells in Column C to F using =ISBLANK(C2).
 

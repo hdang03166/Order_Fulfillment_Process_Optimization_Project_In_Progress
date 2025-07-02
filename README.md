@@ -42,9 +42,25 @@ General Data Formatting Updates
 - Converted helper columns to static values to improve Excel performance with large datasets (~89,000 rows).
 
 Exploratory Data Analysis of Cleaned Orders Sheet
-- Created 5 helper columns (H to L) to flag missing or inconsistent timestamps (order_delivered_timestamp, order_approved_at) and count missing values.
+- Added 5 helper columns (H to L) to identify data quality issues and assist in KPI calculations:
 
-- Applied conditional formatting with orange fill and solid outline border for visibility.
+  - Created order_status_timestamp_issue (Column H) to flag rows where order_status = "delivered" but order_delivered_timestamp is missing.
+
+  - Created count_timestamp_issue (Column I) to count total rows with delivery timestamp issues.
+
+  - Created order_approved_flag (Column J) to flag missing order_approved_at timestamps.
+
+  - Created missing_order_approved (Column K) to count total missing approval timestamps.
+
+  - Created missing_delivered_timestamp (Column L) to count total missing delivery timestamps.
+
+- Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
+
+  - Highlighted cells in Column F (order_delivered_timestamp) where order_status = "delivered" but the timestamp is blank (=AND($C2="delivered", ISBLANK($F2))).
+
+  - Highlighted all blank cells in Column F (order_delivered_timestamp) (=ISBLANK($F2)).
+
+  - Highlighted cells in Column E (order_approved_at) where the helper column J (order_approved_flag) marks the value as "Missing" (=$J2="Missing").
 
 Exploratory Data Analysis of Cleaned Products Sheet
 - Created 5 helper columns (G to K) for exact duplicate detection (concatenation_key), duplicate labeling, and counting missing values in key fields. The calculated numbers are different because 13 duplicates rows were deleted to not interfer with KPIs.

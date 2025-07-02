@@ -44,15 +44,15 @@ General Data Formatting Updates
 Exploratory Data Analysis of Cleaned Orders Sheet
 - Added 5 helper columns (H to L) to identify data quality issues and assist in KPI calculations:
 
-  - order_status_timestamp_issue (Column H): Flags rows where `order_statu`s = "delivered" but `order_delivered_timestamp` is missing.
+  - order_status_timestamp_issue (Column H): Flags rows where `order_statu`s = "delivered" but `order_delivered_timestamp` is missing: =IF(AND($C2="delivered", ISBLANK($F2)), "Missing Delivered Timestamp", "OK")
 
-  - count_timestamp_issue (Column I): Counts total rows with delivery timestamp issues flagged in Column H.
+  - count_timestamp_issue (Column I): Counts total rows with delivery timestamp issues flagged in Column H: =COUNTIF(H2:H89317, "Missing Delivered Timestamp")
 
-  - order_approved_flag (Column J): Flags missing order_approved_at timestamps.
+  - order_approved_flag (Column J): Flags missing order_approved_at timestamps: =COUNTIF(H2:H89317, "Missing Delivered Timestamp")
 
-  - missing_order_approved (Column K): Counts total missing approval timestamps flagged in Column J.
+  - missing_order_approved (Column K): Counts total missing approval timestamps flagged in Column J: =COUNTIF(J2:J89317, "Missing")
 
-  - missing_delivered_timestamp (Column L): Counts total missing delivery timestamps.
+  - missing_delivered_timestamp (Column L): Counts total missing delivery timestamps: =COUNTIF(F2:F89317, "")
 
 - Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
 
@@ -62,16 +62,17 @@ Exploratory Data Analysis of Cleaned Orders Sheet
 
   - Highlighted cells in Column E (`order_approved_at`) where the helper column J (`order_approved_flag`) marks the value as "Missing" using (=$J2="Missing").
 
+
 Exploratory Data Analysis of Cleaned Products Sheet
 - Added 5 helper columns (G to K) to identify data quality issues and assist in KPI calculations:
 
-  - concatenation_key (Column G): Combined multiple columns into a single key to detect exact duplicate rows.
+  - concatenation_key (Column G): Combined multiple columns into a single key to detect exact duplicate rows: =A2 & "|" & B2 & "|" & C2 & "|" & D2 & "|" & E2 & "|" & F2
 
-  - duplicate_label (Column H): Flags rows as "Duplicate" or "Unique" based on the concatenation key.
+  - duplicate_label (Column H): Flags rows as "Duplicate" or "Unique" based on the concatenation key: =IF(COUNTIF($G$2:G2, G2) > 1, "Duplicate", "Unique")
 
-  - total_duplicates Count (Column I): Counts how many duplicate rows exist in the dataset.
+  - total_duplicates Count (Column I): Counts how many duplicate rows exist in the dataset: =COUNTIF(H2:H89304, "Duplicate")
 
-  - missing_values Count (Column J): Counts the number of missing values across key product columns for each row.
+  - missing_values Count (Column J): Counts the number of missing values across key product columns for each row: =COUNTBLANK(A2:F89304)
 
   - data_quality_flag (Column K): Marks rows with critical missing data or inconsistencies for easier filtering.
 
@@ -89,7 +90,11 @@ Exploratory Data Analysis of Cleaned Products Sheet
 
   - “fashion_female_clothing” → “fashion_female_clothing”
 
-- Applied conditional formatting with orange fill and solid outline border for clear visibility.
+- Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
+
+  -  Highlighted cells in Column B (`product_category_name`) using =ISBLANK(B2).
+
+  - Highlighted cells in Column C to F using =ISBLANK(C2).
 
 
 ## Tools & Techniques

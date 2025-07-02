@@ -63,9 +63,21 @@ Exploratory Data Analysis of Cleaned Orders Sheet
   - Highlighted cells in Column E (order_approved_at) where the helper column J (order_approved_flag) marks the value as "Missing" (=$J2="Missing").
 
 Exploratory Data Analysis of Cleaned Products Sheet
-- Created 5 helper columns (G to K) for exact duplicate detection (concatenation_key), duplicate labeling, and counting missing values in key fields. The calculated numbers are different because 13 duplicates rows were deleted to not interfer with KPIs.
+- Added 5 helper columns (G to K) to improve data quality checks and support KPI calculations:
 
-- Corrected grammar and standardized `product_category_name` entries:
+  - Concatenation Key (Column G): Combined multiple columns into a single key to detect exact duplicate rows.
+
+  - Duplicate Label (Column H): Flags rows as "Duplicate" or "Unique" based on the concatenation key.
+
+  - Total Duplicates Count (Column I): Counts how many duplicate rows exist in the dataset.
+
+  - Missing Values Count (Column J): Counts the number of missing values across key product columns for each row.
+
+  - Data Quality Flag (Column K): Marks rows with critical missing data or inconsistencies for easier filtering.
+
+- Deleted 13 exact duplicate rows to avoid skewing KPIs and analyses.
+
+- Standardized and corrected product category names for consistency and accuracy, including:
 
   - “perfumery” → “perfumes”
 
@@ -77,11 +89,7 @@ Exploratory Data Analysis of Cleaned Products Sheet
 
   - “fashion_female_clothing” → “fashion_female_clothing”
 
-- Applied conditional formatting with orange fill and solid outline border for visibility:
-
-  - Highlight cells in Column F (`order_delivered_timestamp`) where order_status = "delivered" and the timestamp is blank.
-
-  - Highlight cells in Column E (`order_approved_at`) that are blank or contain only spaces.
+- Applied conditional formatting with orange fill and solid outline border for clear visibility.
 
 
 ## Tools & Techniques

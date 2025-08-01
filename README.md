@@ -42,7 +42,7 @@ General Data Formatting Updates
 
 <br>
 
-Exploratory data aalysis on Cleaned Orders:
+Exploratory data analysis on Cleaned Orders:
 - Added 5 helper columns to identify data quality issues and assist in KPI calculations:
 
   - (Column H) order_status_timestamp_issue: Flags rows where `order_status` = "delivered" but `order_delivered_timestamp` is missing: =IF(AND($C2="delivered", ISBLANK($F2)), "Missing Delivered Timestamp", "OK")

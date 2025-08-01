@@ -2,33 +2,32 @@
 ## Note: I am currently working on this self-initiated project. I have completed the cleaning and EDA phases and am about to start building the Power BI dashboard. I will post the completed version on LinkedIn soon—stay tuned! (Updated July 2nd)
 
 ## Overview
-This project analyzes how orders move through an e-commerce system, from customer order placement to delivery. The end-to-end analysis discovers trends, tracks key performance indicators, and suggests improvements. Data is explored using Python and cleaned with Excel, applying ETL processes and exploratory data analysis. Advanced SQL queries extract insights that are visualized in a Power BI dashboard with visuals, DAX calculations, and basic forecasting to deliver business insights.
+This project explores trends in the e-commerce order fulfillment process using a multi-table dataset. It focuses on analyzing order performance, payment methods, and delivery timelines to identify process inefficiencies and customer experience gaps. Python was used for data exploration and cleaning, Excel for organization, SQL for KPI analysis, and Power BI for interactive visualization.
 
 ## Objective
-Identify problems in the order and delivery process, forecast key metrics such as order volume, and provide actionable insights to optimize operations and enhance customer experience.
+Understand what drives order performance and customer experience by analyzing trends across the fulfillment lifecycle, and explore forecasting techniques to support better operational planning and business decisions.
 
 ## Data Source
 The dataset used in this project is publicly available on Kaggle:
 [Ecommerce Order & Supply Chain Dataset by Aditya Bagus Pratama](https://www.kaggle.com/datasets/bytadit/ecommerce-order-dataset/data)
 
-It covers the fulfillment pipeline from order placement through delivery, including order-level data, shipping and delivery timestamps, customer and product details, shipping status, and more. Only the train folder was used for this project to simplify analysis.
+It covers the fulfillment pipeline from order placement through delivery, including order-level data, shipping and delivery timestamps, customer and product details, shipping status, and more.
 
 License: Provided under Kaggle Terms of Use; all rights belong to the original author.
 
 
 ## Content Description
-The train folder contains five CSV files that represent key entities involved in the e-commerce order fulfillment pipeline:
+The dataset includes two folders: train and test. This project uses only the train folder, which contains five CSV files:
 
 - df_Customers.csv: Contains customer identifiers and regional information.
 
 - df_OrderItems.csv: Details the individual products within each order, including seller ID, price, and shipping charges.
 
-- df_Orders.csv: Contains data such as order ID, order status, and shipping and delivery dates.
+- df_Orders.csv: Order data such as order ID, order status, and shipping and delivery dates.
 
-- df_Payments.csv: Logs payment information per order, including payment type, installments, and amount.
+- df_Payments.csv: Payment information per order, including payment type, installments, and amount.
 
-- df_Products.csv: Lists product data such as category name and physical measurements.
-
+- df_Products.csv: Product data including category name and physical measurements.
 
 
 ## Data Cleaning & Preparation
@@ -43,18 +42,18 @@ General Data Formatting Updates
 
 <br>
 
-Exploratory Data Analysis of Cleaned Orders Sheet
+Exploratory data aalysis on Cleaned Orders:
 - Added 5 helper columns (H to L) to identify data quality issues and assist in KPI calculations:
 
-  - order_status_timestamp_issue (Column H): Flags rows where `order_status` = "delivered" but `order_delivered_timestamp` is missing: =IF(AND($C2="delivered", ISBLANK($F2)), "Missing Delivered Timestamp", "OK")
+  - (Column H) order_status_timestamp_issue: Flags rows where `order_status` = "delivered" but `order_delivered_timestamp` is missing: =IF(AND($C2="delivered", ISBLANK($F2)), "Missing Delivered Timestamp", "OK")
 
-  - count_timestamp_issue (Column I): Counts total rows with delivery timestamp issues flagged in Column H: =COUNTIF(H2:H89317, "Missing Delivered Timestamp")
+  - (Column I) count_timestamp_issue: Counts total rows with delivery timestamp issues flagged in Column H: =COUNTIF(H2:H89317, "Missing Delivered Timestamp")
 
-  - order_approved_flag (Column J): Flags missing order_approved_at timestamps: =IF(ISBLANK(E2), "Missing", "Present")
+  - (Column J) order_approved_flag: Flags missing order_approved_at timestamps: =IF(ISBLANK(E2), "Missing", "Present")
 
-  - missing_order_approved (Column K): Counts total missing approval timestamps flagged in Column J: =COUNTIF(J2:J89317, "Missing")
+  - (Column K) missing_order_approved: Counts total missing approval timestamps flagged in Column J: =COUNTIF(J2:J89317, "Missing")
 
-  - missing_delivered_timestamp (Column L): Counts total missing delivery timestamps: =COUNTIF(F2:F89317, "")
+  - (Column L) missing_delivered_timestamp: Counts total missing delivery timestamps: =COUNTIF(F2:F89317, "")
 
 - Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
 
@@ -66,18 +65,18 @@ Exploratory Data Analysis of Cleaned Orders Sheet
 
 <br>
 
-Exploratory Data Analysis of Cleaned Products Sheet
+Exploratory data analysis on Cleaned Products:
 - Added 5 helper columns (G to K) to identify data quality issues and assist in KPI calculations:
 
-  - concatenation_key (Column G): Combined multiple columns into a single key to detect exact duplicate rows: =A2 & "|" & B2 & "|" & C2 & "|" & D2 & "|" & E2 & "|" & F2
+  - (Column G) concatenation_key: Combined multiple columns into a single key to detect exact duplicate rows: =A2 & "|" & B2 & "|" & C2 & "|" & D2 & "|" & E2 & "|" & F2
 
-  - duplicate_label (Column H): Flags rows as "Duplicate" or "Unique" based on the concatenation key: =IF(COUNTIF($G$2:G2, G2) > 1, "Duplicate", "Unique")
+  - (Column H) duplicate_label: Flags rows as "Duplicate" or "Unique" based on the concatenation key: =IF(COUNTIF($G$2:G2, G2) > 1, "Duplicate", "Unique")
 
-  - total_duplicates Count (Column I): Counts how many duplicate rows exist in the dataset: =COUNTIF(H2:H89304, "Duplicate")
+  - (Column I) total_duplicates Count: Counts how many duplicate rows exist in the dataset: =COUNTIF(H2:H89304, "Duplicate")
 
-  - missing_values Count (Column J): Counts the number of missing values across key product columns for each row: =COUNTBLANK(A2:F89304)
+  - (Column J) missing_values Count: Counts the number of missing values across key product columns for each row: =COUNTBLANK(A2:F89304)
 
-  - data_quality_flag (Column K): Marks rows with critical missing data or inconsistencies for easier filtering.
+  - (Column K) data_quality_flag: Marks rows with critical missing data or inconsistencies for easier filtering.
 
 - Deleted 13 exact duplicate rows to avoid skewing KPIs and analyses.
 
@@ -95,9 +94,7 @@ Exploratory Data Analysis of Cleaned Products Sheet
 
 - Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
 
-  - Highlighted cells in Column B (`product_category_name`) using =ISBLANK(B2).
-
-  - Highlighted cells in Column C to F using =ISBLANK(C2).
+  - Highlighted cells in Column B (`product_category_name`) using =ISBLANK(B2) and used =ISBLANK(C2) in Column C to F.
 
 
 ## Tools & Techniques
@@ -106,9 +103,6 @@ Exploratory Data Analysis of Cleaned Products Sheet
 - **Microsoft Excel**: Showcased ETL processes and validation, using Power Query, formulas (e.g., COUNTBLANK, IF), and conditional formatting.
 - **Power BI**: Created dashboard visualization and DAX calculations for metrics and KPIs.
 
----
-# Note to self: The sections above have been updated; the sections below still need modification.
----
 
 ## Project Structure
 ```
@@ -133,6 +127,11 @@ Order_Fulfillment_Process_Optimization_Project/
 ├── LICENSE
 └── README.md
 ```
+
+---
+# Note to self: The sections above have been updated; the sections below still need modification.
+---
+
 
 ## Key Questions & Insights  
 - What are the average and distribution of fulfillment times across different shipping methods?  

@@ -114,12 +114,6 @@ Exploratory Data Analysis of Cleaned Products Sheet
 ```
 Order_Fulfillment_Process_Optimization_Project/
 ├── 1_data/
-│   ├── test/
-│   │   ├── df_Customers.csv
-│   │   ├── df_OrderItems.csv
-│   │   ├── df_Orders.csv
-│   │   ├── df_Payments.csv
-│   │   └── df_Products.csv
 │   ├── train/
 │   │   ├── df_Customers.csv
 │   │   ├── df_OrderItems.csv
@@ -127,7 +121,7 @@ Order_Fulfillment_Process_Optimization_Project/
 │   │   ├── df_Payments.csv
 │   │   └── df_Products.csv
 │   ├── merged_cleaned_orders.xlsx
-│   └── merged_cleaned_orders.csv
+│   └── merged_cleaned_products.xlsx
 ├── 2_analysis/
 │   └── ecommerce_data_cleaning_and_forecasting.ipynb
 ├── 3_powerbi/

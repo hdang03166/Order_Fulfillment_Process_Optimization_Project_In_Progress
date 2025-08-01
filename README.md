@@ -43,7 +43,7 @@ General Data Formatting Updates
 <br>
 
 Exploratory data aalysis on Cleaned Orders:
-- Added 5 helper columns (H to L) to identify data quality issues and assist in KPI calculations:
+- Added 5 helper columns to identify data quality issues and assist in KPI calculations:
 
   - (Column H) order_status_timestamp_issue: Flags rows where `order_status` = "delivered" but `order_delivered_timestamp` is missing: =IF(AND($C2="delivered", ISBLANK($F2)), "Missing Delivered Timestamp", "OK")
 
@@ -66,7 +66,7 @@ Exploratory data aalysis on Cleaned Orders:
 <br>
 
 Exploratory data analysis on Cleaned Products:
-- Added 5 helper columns (G to K) to identify data quality issues and assist in KPI calculations:
+- Added 5 helper columns to identify data quality issues and assist in KPI calculations:
 
   - (Column G) concatenation_key: Combined multiple columns into a single key to detect exact duplicate rows: =A2 & "|" & B2 & "|" & C2 & "|" & D2 & "|" & E2 & "|" & F2
 
@@ -95,7 +95,6 @@ Exploratory data analysis on Cleaned Products:
 - Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
 
   - Highlighted cells in Column B (`product_category_name`) using =ISBLANK(B2) and used =ISBLANK(C2) in Column C to F.
-
 
 ## Tools & Techniques
 - **Kaggle Notebook**: Utilized Python to load files, preview data, and identify missing values and duplicates.

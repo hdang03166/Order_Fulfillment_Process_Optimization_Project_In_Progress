@@ -17,7 +17,7 @@ License: Provided under Kaggle Terms of Use; all rights belong to the original a
 
 
 ## Content Description
-The dataset includes two folders: train and test. This project uses only the train folder, which contains five CSV files:
+The source dataset includes two folders: train and test. This project uses only the train folder, which contains five CSV files:
 
 - df_Customers.csv: Contains customer identifiers and regional information.
 
@@ -31,50 +31,52 @@ The dataset includes two folders: train and test. This project uses only the tra
 
 
 ## Data Cleaning & Preparation
-General Data Formatting Updates
-- Standardized all text-based columns to uppercase and middle alignment, and the `customer_city` column is only capitalized on the first letter of each word across all datasets for consistency and improved readability. The numeric monetary and the timestamp columns displayed two decimal places for clarity and right aligned for easier comparison and scanning except for the product measurement columns.
+General data formatting:
+- Standardized all text-based columns to uppercase and to middle alignment all datasets for consistency and improved readability, except for the `customer_city` column, it is only capitalized on the first letter of each word.
 
-- Cleaned product category names for spelling and grammar consistency.
+- The numeric monetary columns are displayed with two decimal places for clarity, and along with the timestamp columns, they are all right aligned for easier comparison and scanning. Only the product measurement columns were kept as whole integers.
 
-- Converted helper columns to static values to improve Excel performance with large datasets (~89,000 rows).
+- `product_category` was cleaned up for spelling and grammar consistency.
 
-<br>
-
-Exploratory data analysis on Cleaned Orders:
-- Added 5 helper columns to identify data quality issues and assist in KPI calculations:
-
-  - (Column H) order_status_timestamp_issue: Flags rows where `order_status` = "delivered" but `order_delivered_timestamp` is missing: =IF(AND($C2="delivered", ISBLANK($F2)), "Missing Delivered Timestamp", "OK")
-
-  - (Column I) count_timestamp_issue: Counts total rows with delivery timestamp issues flagged in Column H: =COUNTIF(H2:H89317, "Missing Delivered Timestamp")
-
-  - (Column J) order_approved_flag: Flags missing order_approved_at timestamps: =IF(ISBLANK(E2), "Missing", "Present")
-
-  - (Column K) missing_order_approved: Counts total missing approval timestamps flagged in Column J: =COUNTIF(J2:J89317, "Missing")
-
-  - (Column L) missing_delivered_timestamp: Counts total missing delivery timestamps: =COUNTIF(F2:F89317, "")
-
-- Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
-
-  - Highlighted cells in Column F (`order_delivered_timestamp`) where `order_status` = "delivered" but the timestamp is blank using(=AND($C2="delivered", ISBLANK($F2)).
-
-  - Highlighted all blank cells in Column F (`order_delivered_timestamp`) using =ISBLANK($F2).
-
-  - Highlighted cells in Column E (`order_approved_at`) where the helper column J (`order_approved_flag`) marks the value as "Missing" using =$J2="Missing".
+- Converted all helper columns to static values to improve Excel performance with large datasets (~89,000 rows).
 
 <br>
 
-Exploratory data analysis on Cleaned Products:
-- Added 5 helper columns to identify data quality issues and assist in KPI calculations:
+Exploratory data analysis on cleaned_df_orders
+Added 5 helper columns to identify data quality issues and assist in KPI calculations:
 
-  - (Column G) concatenation_key: Combined multiple columns into a single key to detect exact duplicate rows: =A2 & "|" & B2 & "|" & C2 & "|" & D2 & "|" & E2 & "|" & F2
+- (Column H) order_status_timestamp_issue: Flags rows where `order_status` = "delivered" but `order_delivered_timestamp` is missing: =IF(AND($C2="delivered", ISBLANK($F2)), "Missing Delivered Timestamp", "OK")
 
-  - (Column H) duplicate_label: Flags rows as "Duplicate" or "Unique" based on the concatenation key: =IF(COUNTIF($G$2:G2, G2) > 1, "Duplicate", "Unique")
+- (Column I) count_timestamp_issue: Counts total rows with delivery timestamp issues flagged in Column H: =COUNTIF(H2:H89317, "Missing Delivered Timestamp")
 
-  - (Column I) total_duplicates Count: Counts how many duplicate rows exist in the dataset: =COUNTIF(H2:H89304, "Duplicate")
+- (Column J) order_approved_flag: Flags missing order_approved_at timestamps: =IF(ISBLANK(E2), "Missing", "Present")
 
-  - (Column J) missing_values Count: Counts the number of missing values across key product columns for each row: =COUNTBLANK(A2:F89304)
+- (Column K) missing_order_approved: Counts total missing approval timestamps flagged in Column J: =COUNTIF(J2:J89317, "Missing")
 
-  - (Column K) data_quality_flag: Marks rows with critical missing data or inconsistencies for easier filtering.
+- (Column L) missing_delivered_timestamp: Counts total missing delivery timestamps: =COUNTIF(F2:F89317, "")
+
+Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
+
+- Highlighted cells in Column F (`order_delivered_timestamp`) where `order_status` = "delivered" but the timestamp is blank using(=AND($C2="delivered", ISBLANK($F2)).
+
+- Highlighted all blank cells in Column F (`order_delivered_timestamp`) using =ISBLANK($F2).
+
+- Highlighted cells in Column E (`order_approved_at`) where the helper column J (`order_approved_flag`) marks the value as "Missing" using =$J2="Missing".
+
+<br>
+
+Exploratory data analysis on cleaned_df_products
+Added 5 helper columns to identify data quality issues and assist in KPI calculations:
+
+- (Column G) concatenation_key: Combined columns A to F into a single key for column H to detect duplicate and unique rows: =A2 & "|" & B2 & "|" & C2 & "|" & D2 & "|" & E2 & "|" & F2
+
+- (Column H) duplicate_label: Flags rows as "DUPLICATE" or "UNIQUE" based on the concatenation key: =IF(COUNTIF($G$2:G2, G2) > 1, "DUPLICATE", "UNIQUE")
+
+- (Column I) total_duplicates: Counts how many duplicate rows exist in column H: =COUNTIF(H2:H89304, "DUPLICATE")
+
+- (Column J) total_missing_values: Counts the number of missing values in the dataset: =COUNTBLANK(A2:F89304)
+
+- (Column K) total_missing_category_name: Counts the number of rows with missing data: 
 
 - Deleted 13 exact duplicate rows to avoid skewing KPIs and analyses.
 
@@ -90,9 +92,9 @@ Exploratory data analysis on Cleaned Products:
 
   - “fashio_female_clothing” → “fashion_female_clothing”
 
-- Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
+Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
 
-  - Highlighted cells in Column B (`product_category_name`) using =ISBLANK(B2) and used =ISBLANK(C2) in Column C to F.
+- Highlighted cells in Column B (`product_category_name`) using =ISBLANK(B2) and used =ISBLANK(C2) in Column C to F.
 
 ## Tools & Techniques
 - **Kaggle Notebook**: Utilized Python to load files, preview data, and identify missing values and duplicates.

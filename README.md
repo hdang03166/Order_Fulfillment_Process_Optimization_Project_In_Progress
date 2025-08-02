@@ -32,9 +32,7 @@ The dataset includes two folders: train and test. This project uses only the tra
 
 ## Data Cleaning & Preparation
 General Data Formatting Updates
-- Standardized all ID columns (`customer_id`, `product_id`, `order_id`, `seller_id`) to uppercase across all datasets for readability and consistency.
-
-- Formatted monetary columns in `orderitems` and `payments` to display two decimal places for clarity.
+- Standardized all text-based columns to uppercase and middle alignment, and the `customer_city` column is only capitalized on the first letter of each word across all datasets for consistency and improved readability. The numeric monetary and the timestamp columns displayed two decimal places for clarity and right aligned for easier comparison and scanning except for the product measurement columns.
 
 - Cleaned product category names for spelling and grammar consistency.
 
@@ -107,9 +105,9 @@ Exploratory data analysis on Cleaned Products:
 ```
 Order_Fulfillment_Process_Optimization_Project/
 ├── 1_data/
-│   ├── raw_data_unchanged.xlsx
-│   ├── raw_and_cleaned_data.xlsx
-│   └── original_cvs_folder/
+│   ├── original_data_formatted.xlsx
+│   ├── formatted_and_cleaned_data.xlsx
+│   └── train/
 │       ├── df_customers.csv
 │       ├── df_orderItems.csv
 │       ├── df_orders.csv

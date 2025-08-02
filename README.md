@@ -42,7 +42,8 @@ General data formatting:
 
 <br>
 
-Exploratory data analysis on cleaned_df_orders
+### Exploratory data analysis on cleaned_df_orders
+
 Added 5 helper columns to identify data quality issues and assist in KPI calculations:
 
 - (Column H) order_status_timestamp_issue: Flags rows where `order_status` = "delivered" but `order_delivered_timestamp` is missing: =IF(AND($C2="delivered", ISBLANK($F2)), "Missing Delivered Timestamp", "OK")
@@ -65,36 +66,38 @@ Applied conditional formatting with orange fill and solid outline border for cle
 
 <br>
 
-Exploratory data analysis on cleaned_df_products
+### Exploratory data analysis on cleaned_df_products
+
 Added 5 helper columns to identify data quality issues and assist in KPI calculations:
 
 - (Column G) concatenation_key: Combined columns A to F into a single key for column H to detect duplicate and unique rows: =A2 & "|" & B2 & "|" & C2 & "|" & D2 & "|" & E2 & "|" & F2
 
 - (Column H) duplicate_label: Flags rows as "DUPLICATE" or "UNIQUE" based on the concatenation key: =IF(COUNTIF($G$2:G2, G2) > 1, "DUPLICATE", "UNIQUE")
 
-- (Column I) total_duplicates: Counts how many duplicate rows exist in column H: =COUNTIF(H2:H89304, "DUPLICATE")
+- (Column I) total_duplicates: Counts how many duplicate rows exist in column H, resulting in 61685: =COUNTIF(H2:H89317, "DUPLICATE")
 
-- (Column J) total_missing_values: Counts the number of missing values in the dataset: =COUNTBLANK(A2:F89304)
+- (Column J) total_missing_values: Counts the number of missing values in the dataset, resulting in 368: =COUNTBLANK(A2:F89317)
 
-- (Column K) total_missing_category_name: Counts the number of rows with missing data: 
+- (Column K) total_missing_category_name: Counts the number of rows with missing data, resulting in 308: =COUNTBLANK(B2:B89317)
 
-- Deleted 13 exact duplicate rows to avoid skewing KPIs and analyses.
+- Identified 14 entries (13 duplicates) of the same product_id (ZX9HL81JFVR2) in the Toys category. These entries lacked product measurement data. The rows were kept to preserve integrity across datasets.
 
-- Standardized and corrected product category names for consistency and accuracy, including:
+Standardized and corrected product category names for consistency and accuracy, including:
 
-  - “perfumery” → “perfumes”
+- “perfumery” → “perfumes”
 
-  - “telephony” → “telephones”
+- “telephony” → “telephones”
 
-  - “home_confort” → “home_comfort”
+- “home_confort” → “home_comfort”
 
-  - “fixed_telephony” → “fixed_telephones”
+- “fixed_telephony” → “fixed_telephones”
 
-  - “fashio_female_clothing” → “fashion_female_clothing”
+- “fashio_female_clothing” → “fashion_female_clothing”
 
 Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
 
 - Highlighted cells in Column B (`product_category_name`) using =ISBLANK(B2) and used =ISBLANK(C2) in Column C to F.
+
 
 ## Tools & Techniques
 - **Kaggle Notebook**: Utilized Python to load files, preview data, and identify missing values and duplicates.

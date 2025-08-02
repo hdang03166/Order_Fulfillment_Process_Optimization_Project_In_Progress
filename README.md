@@ -56,6 +56,8 @@ Added 5 helper columns to identify data quality issues and assist in KPI calcula
 
 - (Column L) missing_delivered_timestamp: Counts total missing delivery timestamps: =COUNTIF(F2:F89317, "")
 
+- Applied conditional formatting with orange fill and solid outline boarders all around on missing cells for clear visibability in columns E to F.
+
 Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
 
 - Highlighted cells in Column F (`order_delivered_timestamp`) where `order_status` = "delivered" but the timestamp is blank using(=AND($C2="delivered", ISBLANK($F2)).
@@ -68,21 +70,25 @@ Applied conditional formatting with orange fill and solid outline border for cle
 
 ### Exploratory data analysis on cleaned_df_products
 
+- Identified 14 entries (13 duplicates) of the same product_id (ZX9HL81JFVR2) in the Toys category. These entries lacked product measurement data. The rows were kept to preserve integrity across datasets.
+
+Applied conditional formatting with orange fill and solid outline boarders all around on missing cells for clear visibability in columns C to F:
+
+- Highlighted columns C to F use =ISBLANK(C2) AND 
+
 Added 5 helper columns to identify data quality issues and assist in KPI calculations:
 
 - (Column G) concatenation_key: Combined columns A to F into a single key for column H to detect duplicate and unique rows: =A2 & "|" & B2 & "|" & C2 & "|" & D2 & "|" & E2 & "|" & F2
 
 - (Column H) duplicate_label: Flags rows as "DUPLICATE" or "UNIQUE" based on the concatenation key: =IF(COUNTIF($G$2:G2, G2) > 1, "DUPLICATE", "UNIQUE")
 
-- (Column I) total_duplicates: Counts how many duplicate rows exist in column H, resulting in 61685: =COUNTIF(H2:H89317, "DUPLICATE")
+- (Column I) total_duplicates: Counts how many duplicate rows exist in column H, resulting in a total of 61685: =COUNTIF(H2:H89317, "DUPLICATE")
 
-- (Column J) total_missing_values: Counts the number of missing values in the dataset, resulting in 368: =COUNTBLANK(A2:F89317)
+- (Column J) total_missing_values: Counts the number of missing values in the dataset, resulting in a total of 368: =COUNTBLANK(A2:F89317)
 
-- (Column K) total_missing_category_name: Counts the number of rows with missing data, resulting in 308: =COUNTBLANK(B2:B89317)
+- (Column K) total_missing_category_name: Counts the number of rows with missing product category name, resulting in 308 out of the total 368: =COUNTBLANK(B2:B89317)
 
-- Identified 14 entries (13 duplicates) of the same product_id (ZX9HL81JFVR2) in the Toys category. These entries lacked product measurement data. The rows were kept to preserve integrity across datasets.
-
-Standardized and corrected product category names for consistency and accuracy, including:
+Standardized and corrected product category names for consistency and accuracy:
 
 - “perfumery” → “perfumes”
 
@@ -93,10 +99,6 @@ Standardized and corrected product category names for consistency and accuracy, 
 - “fixed_telephony” → “fixed_telephones”
 
 - “fashio_female_clothing” → “fashion_female_clothing”
-
-Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
-
-- Highlighted cells in Column B (`product_category_name`) using =ISBLANK(B2) and used =ISBLANK(C2) in Column C to F.
 
 
 ## Tools & Techniques

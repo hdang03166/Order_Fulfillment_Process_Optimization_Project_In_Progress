@@ -1,8 +1,12 @@
 # Order Fulfillment Process Optimization Project
 ## Note: I am currently working on this self-initiated project. I have completed the cleaning and EDA phases and am about to start building the Power BI dashboard. I will post the completed version on LinkedIn soon—stay tuned! (Updated July 2nd)
 
+<br>
+
 ## Overview
 This project explores trends in the e-commerce order fulfillment process using a multi-table dataset. It focuses on analyzing order performance, payment methods, and delivery timelines to identify process inefficiencies and customer experience gaps. Python was used for data exploration and cleaning, Excel for organization, SQL for KPI analysis, and Power BI for interactive visualization.
+
+<br>
 
 ## Objective
 Understand what drives order performance and customer experience by analyzing trends across the fulfillment lifecycle, and explore forecasting techniques to support better operational planning and business decisions.
@@ -15,6 +19,7 @@ It covers the fulfillment pipeline from order placement through delivery, includ
 
 License: Provided under Kaggle Terms of Use; all rights belong to the original author.
 
+<br>
 
 ## Content Description
 The source dataset includes two folders: train and test. This project uses only the train folder, which contains five CSV files:
@@ -29,14 +34,14 @@ The source dataset includes two folders: train and test. This project uses only 
 
 - df_Products: Product data including category name and physical measurements.
 
+<br>
 
 ## Data Cleaning & Preparation
-General data formatting:
-- Standardized all text-based columns to uppercase and to middle alignment all datasets for consistency and improved readability, except for the `customer_city` column, it is only capitalized on the first letter of each word.
+- Standardized all text-based columns to uppercase and to middle alignment all datasets for consistency and improved readability, except for `customer_city`, it is only capitalized on the first letter of each word.
 
 - The numeric monetary columns are displayed with two decimal places for clarity, and along with the timestamp columns, they are all right aligned for easier comparison and scanning. Only the product measurement columns were kept as whole integers.
 
-- `Product_category` was cleaned up for spelling and grammar consistency.
+- `Product_category_name` was cleaned up for spelling and grammar consistency.
 
 - Converted all helper columns to static values to improve Excel performance with large datasets (~89,000 rows).
 
@@ -44,27 +49,25 @@ General data formatting:
 
 ### Exploratory data analysis on cleaned_df_orders
 
+Applied conditional formatting to the following with orange fill and solid outline boarders all around on missing cells for clear visibility:
+
+- Highlighted cells in Column E (`order_approved_at`) where the helper column J (`order_approved_flag`) marks the value as "MISSING" or "PRESENT" with the formula =$J2="Missing".
+
+- Highlighted cells in Column F (`order_delivered_timestamp`) where `order_status` = "DELIVERED" but the timestamp is blank with the formula =AND($C2="DELIVERED", ISBLANK($F2)).
+
+- Highlighted all blank cells in Column F (`order_delivered_timestamp`) with the formula =ISBLANK($F2). 
+
 Added 5 helper columns to identify data quality issues and assist in KPI calculations:
 
-- (Column H) order_status_timestamp_issue: Flags rows where `order_status` = "delivered" but `order_delivered_timestamp` is missing: =IF(AND($C2="delivered", ISBLANK($F2)), "Missing Delivered Timestamp", "OK")
+- (Column H) order_status_timestamp_issue: Flags rows where `order_status` = "delivered" but `order_delivered_timestamp` is missing: =IF(AND($C2="delivered", ISBLANK($F2)), "Missing Delivered Timestamp", "OK").
 
-- (Column I) count_timestamp_issue: Counts total rows with delivery timestamp issues flagged in Column H: =COUNTIF(H2:H89317, "Missing Delivered Timestamp")
+- (Column I) count_timestamp_issue: Counts total rows with delivery timestamp issues flagged in Column H with the formula =COUNTIF(H2:H89317, "Missing Delivered Timestamp").
 
-- (Column J) order_approved_flag: Flags missing order_approved_at timestamps: =IF(ISBLANK(E2), "Missing", "Present")
+- (Column J) order_approved_flag: Flags missing order_approved_at timestamps: =IF(ISBLANK(E2), "MISSING", "PRESENT").
 
-- (Column K) missing_order_approved: Counts total missing approval timestamps flagged in Column J: =COUNTIF(J2:J89317, "Missing")
+- (Column K) missing_order_approved: Counts total missing approval timestamps flagged in Column J: =COUNTIF(J2:J89317, "Missing").
 
-- (Column L) missing_delivered_timestamp: Counts total missing delivery timestamps: =COUNTIF(F2:F89317, "")
-
-- Applied conditional formatting with orange fill and solid outline boarders all around on missing cells for clear visibability in columns E to F.
-
-Applied conditional formatting with orange fill and solid outline border for clear visibility on key columns:
-
-- Highlighted cells in Column F (`order_delivered_timestamp`) where `order_status` = "delivered" but the timestamp is blank using(=AND($C2="delivered", ISBLANK($F2)).
-
-- Highlighted all blank cells in Column F (`order_delivered_timestamp`) using =ISBLANK($F2).
-
-- Highlighted cells in Column E (`order_approved_at`) where the helper column J (`order_approved_flag`) marks the value as "Missing" using =$J2="Missing".
+- (Column L) missing_delivered_timestamp: Counts total missing delivery timestamps: =COUNTIF(F2:F89317, "").
 
 <br>
 
@@ -98,6 +101,7 @@ Standardized and corrected product category names for consistency and accuracy t
 
 - “fashio_female_clothing” → “fashion_female_clothing”
 
+<br>
 
 ## Tools & Techniques
 - **Kaggle Notebook**: Utilized Python to load files, preview data, and identify missing values and duplicates.
@@ -105,6 +109,7 @@ Standardized and corrected product category names for consistency and accuracy t
 - **SQL Server Express & SSMS**: Wrote SQL queries to demonstrate core project work and KPIs.
 - **Power BI**: Created dashboard visualization and DAX calculations to showcase metrics and KPIs from the data analysis.
 
+<br>
 
 ## Project Structure
 ```
@@ -134,6 +139,7 @@ Order_Fulfillment_Process_Optimization_Project/
 # Note to self: The sections above have been updated; the sections below still need modification.
 ---
 
+<br>
 
 ## Key Questions & Insights  
 - What are the average and distribution of fulfillment times across different shipping methods?  
@@ -142,6 +148,8 @@ Order_Fulfillment_Process_Optimization_Project/
 - Forecast trends in order volume and fulfillment times to predict peak periods and capacity needs.  
 - Recommendations for process improvements based on data-driven insights.
 
+<br>
+
 ## Power BI Dashboard  
 An interactive Power BI dashboard visualizes fulfillment KPIs, bottlenecks, and forecasted trends. It leverages DAX for dynamic calculations such as average delay per stage, percentage of on-time deliveries, and rolling forecast metrics.
 
@@ -149,6 +157,8 @@ Dashboard features:
 - Drill-down by shipping method, product category, and region.
 - Time series analysis of fulfillment times and delays.
 - Forecast visuals for upcoming order volume and resource planning.
+
+<br>
 
 ## How to Use This Repository
 - Explore raw data under `/1_data/`.

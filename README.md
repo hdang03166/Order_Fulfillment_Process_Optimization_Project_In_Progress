@@ -2,7 +2,7 @@
 ## Note: I am currently working on this self-initiated project. I have completed the cleaning and EDA phases and am about to start building the Power BI dashboard. I will post the completed version on LinkedIn soon—stay tuned! (Updated July 2nd)
 
 ## Overview
-This project explores trends in the e-commerce order fulfillment process using a multi-table dataset. It focuses on analyzing order performance, payment methods, and delivery timelines to identify process inefficiencies and customer experience gaps. Python was used for data exploration and cleaning, Excel for organization, SQL for KPI analysis, and Power BI for interactive visualization.
+This project explores trends in the e-commerce order fulfillment process using a multi-table dataset. It focuses on analyzing order performance, payment methods, and delivery timelines to identify process inefficiencies and customer experience gaps. Python was used for data loading, exploration, and cleaning, Excel for organization, SQL for KPI analysis, and Power BI for interactive visualization.
 
 ## Objective
 Understand what drives order performance and customer experience by analyzing trends across the fulfillment lifecycle, and explore forecasting techniques to support better operational planning and business decisions.
@@ -30,7 +30,7 @@ The source dataset includes two folders: train and test. This project uses only 
 
 
 ## Data Cleaning & Preparation
-- Standardized all text-based columns to uppercase and to middle alignment all datasets for consistency and improved readability, except for `customer_city`, it is only capitalized on the first letter of each word.
+- Standardized all text-based columns to uppercase and to middle alignment across all datasets for consistency and improved readability, except for `customer_city`, it is only capitalized on the first letter of each word.
 
 - The numeric monetary columns are displayed with two decimal places for clarity, and along with the timestamp columns, they are all right aligned for easier comparison and scanning. Only the product measurement columns were kept as whole integers.
 
@@ -149,7 +149,7 @@ Standardized and corrected `product_category_name` for consistency and accuracy 
 - **Kaggle Notebook:** Used Python to load files, preview data, and identify missing values and duplicates.
 - **Microsoft Excel:** Perform ETL processes and data validation using Power Query, formulas (e.g., COUNTBLANK, IF), and conditional formatting based on results from Python analysis in Kaggle.
 - **SQL Server Express & SSMS:** Wrote SQL queries to demonstrate core project logic and KPI generation.
-- **Power BI:** Built a dashboard and used DAX calculations to visualize metrics and KPIs from the dataset.
+- **Power BI:** Built a dashboard and used DAX calculations to perform KPI calculations and demonstrate core project logic.
 
 ## Project Structure
 ```

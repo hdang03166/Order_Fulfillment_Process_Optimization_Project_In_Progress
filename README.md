@@ -36,7 +36,7 @@ General data formatting:
 
 - The numeric monetary columns are displayed with two decimal places for clarity, and along with the timestamp columns, they are all right aligned for easier comparison and scanning. Only the product measurement columns were kept as whole integers.
 
-- `product_category` was cleaned up for spelling and grammar consistency.
+- `Product_category` was cleaned up for spelling and grammar consistency.
 
 - Converted all helper columns to static values to improve Excel performance with large datasets (~89,000 rows).
 
@@ -72,23 +72,21 @@ Applied conditional formatting with orange fill and solid outline border for cle
 
 - Identified 14 entries (13 duplicates) of the same product_id (ZX9HL81JFVR2) in the Toys category. These entries lacked product measurement data. The rows were kept to preserve integrity across datasets.
 
-Applied conditional formatting with orange fill and solid outline boarders all around on missing cells for clear visibability in columns C to F:
-
-- Highlighted columns C to F use =ISBLANK(C2) AND 
+- Applied conditional formatting to the range $B$2:$F$89317 with the formula =ISBLANK(B2) to highlight blank cells. Blank cells are formatted with orange fill and solid outline borders for improved visibility and easier identification of missing data.
 
 Added 5 helper columns to identify data quality issues and assist in KPI calculations:
 
-- (Column G) concatenation_key: Combined columns A to F into a single key for column H to detect duplicate and unique rows: =A2 & "|" & B2 & "|" & C2 & "|" & D2 & "|" & E2 & "|" & F2
+- (Column G) concatenation_key: Combined columns A to F into a single key for column H to detect duplicate or unique rows with the formula =A2 & "|" & B2 & "|" & C2 & "|" & D2 & "|" & E2 & "|" & F2.
 
-- (Column H) duplicate_label: Flags rows as "DUPLICATE" or "UNIQUE" based on the concatenation key: =IF(COUNTIF($G$2:G2, G2) > 1, "DUPLICATE", "UNIQUE")
+- (Column H) duplicate_label: Flags rows as "DUPLICATE" or "UNIQUE" based on the concatenation key in column G with the formula =IF(COUNTIF($G$2:G2, G2) > 1, "DUPLICATE", "UNIQUE").
 
-- (Column I) total_duplicates: Counts how many duplicate rows exist in column H, resulting in a total of 61685: =COUNTIF(H2:H89317, "DUPLICATE")
+- (Column I) total_duplicates: Counts how many duplicate rows exist in column H, resulting in a total of 61685, with the formula =COUNTIF(H2:H89317, "DUPLICATE").
 
-- (Column J) total_missing_values: Counts the number of missing values in the dataset, resulting in a total of 368: =COUNTBLANK(A2:F89317)
+- (Column J) total_missing_values: Counts the number of missing values in the dataset, resulting in a total of 368, with the formula =COUNTBLANK(A2:F89317).
 
-- (Column K) total_missing_category_name: Counts the number of rows with missing product category name, resulting in 308 out of the total 368: =COUNTBLANK(B2:B89317)
+- (Column K) total_missing_category_name: Counts the number of rows with missing product category name, resulting in 308, with the formula =COUNTBLANK(B2:B89317).
 
-Standardized and corrected product category names for consistency and accuracy:
+Standardized and corrected product category names for consistency and accuracy through the table:
 
 - “perfumery” → “perfumes”
 
@@ -103,9 +101,9 @@ Standardized and corrected product category names for consistency and accuracy:
 
 ## Tools & Techniques
 - **Kaggle Notebook**: Utilized Python to load files, preview data, and identify missing values and duplicates.
-- **SQL Server Express & SSMS**: Wrote advanced SQL queries, demonstrating core project work and KPIs.
-- **Microsoft Excel**: Showcased ETL processes and validation, using Power Query, formulas (e.g., COUNTBLANK, IF), and conditional formatting.
-- **Power BI**: Created dashboard visualization and DAX calculations for metrics and KPIs.
+- **Microsoft Excel**: Perform ETL processes and validation using the results from the Python code using Power Query, formulas (e.g., COUNTBLANK, IF), and conditional formatting.
+- **SQL Server Express & SSMS**: Wrote SQL queries to demonstrate core project work and KPIs.
+- **Power BI**: Created dashboard visualization and DAX calculations to showcase metrics and KPIs from the data analysis.
 
 
 ## Project Structure

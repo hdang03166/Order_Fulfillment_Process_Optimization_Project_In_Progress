@@ -11,6 +11,8 @@ This project explores trends in the e-commerce order fulfillment process using a
 ## Objective
 Understand what drives order performance and customer experience by analyzing trends across the fulfillment lifecycle, and explore forecasting techniques to support better operational planning and business decisions.
 
+<br>
+
 ## Data Source
 The dataset used in this project is publicly available on Kaggle:
 [Ecommerce Order & Supply Chain Dataset by Aditya Bagus Pratama](https://www.kaggle.com/datasets/bytadit/ecommerce-order-dataset/data)

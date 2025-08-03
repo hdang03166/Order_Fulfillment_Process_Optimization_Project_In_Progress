@@ -45,9 +45,9 @@ The source dataset includes two folders: train and test. This project uses only 
 
   - (Column E) `order_approved_at`: Applied to the range $E$2:$E$89317 with the formula =$J2="MISSING" to highlight flagged rows in helper column J.
 
-  – (Column F) `order_delivered_timestamp`: Applied two formulas to the range $F$2:$F$89317:
-    - =ISBLANK($F2) to highlight all blank timestamps
-    - =AND($C2="DELIVERED", ISBLANK($F2)) to flag missing timestamps for orders marked as "DELIVERED"
+  - (Column F) `order_delivered_timestamp`: Applied two formulas to the range $F$2:$F$89317:
+    - =ISBLANK($F2) to highlight all blank timestamps.
+    - =AND($C2="DELIVERED", ISBLANK($F2)) to flag missing timestamps for orders marked as "DELIVERED".
 
 Added 5 helper columns to identify data quality issues and support KPI calculations:
 

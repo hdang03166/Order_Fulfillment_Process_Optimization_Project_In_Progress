@@ -1,17 +1,11 @@
 # Order Fulfillment Process Optimization Project
 ## Note: I am currently working on this self-initiated project. I have completed the cleaning and EDA phases and am about to start building the Power BI dashboard. I will post the completed version on LinkedIn soon—stay tuned! (Updated July 2nd)
 
-<br>
-
 ## Overview
 This project explores trends in the e-commerce order fulfillment process using a multi-table dataset. It focuses on analyzing order performance, payment methods, and delivery timelines to identify process inefficiencies and customer experience gaps. Python was used for data exploration and cleaning, Excel for organization, SQL for KPI analysis, and Power BI for interactive visualization.
 
-<br>
-
 ## Objective
 Understand what drives order performance and customer experience by analyzing trends across the fulfillment lifecycle, and explore forecasting techniques to support better operational planning and business decisions.
-
-<br>
 
 ## Data Source
 The dataset used in this project is publicly available on Kaggle:
@@ -20,8 +14,6 @@ The dataset used in this project is publicly available on Kaggle:
 It covers the fulfillment pipeline from order placement through delivery, including order-level data, shipping and delivery timestamps, customer and product details, shipping status, and more.
 
 License: Provided under Kaggle Terms of Use; all rights belong to the original author.
-
-<br>
 
 ## Content Description
 The source dataset includes two folders: train and test. This project uses only the train folder, which contains five CSV files:
@@ -36,7 +28,6 @@ The source dataset includes two folders: train and test. This project uses only 
 
 - df_Products: Product data including category name and physical measurements.
 
-<br>
 
 ## Data Cleaning & Preparation
 - Standardized all text-based columns to uppercase and to middle alignment all datasets for consistency and improved readability, except for `customer_city`, it is only capitalized on the first letter of each word.
@@ -47,7 +38,6 @@ The source dataset includes two folders: train and test. This project uses only 
 
 - Converted all helper columns to static values to improve Excel performance with large datasets (~89,000 rows).
 
-<br>
 
 ### Exploratory data analysis on cleaned_df_orders
 
@@ -71,7 +61,6 @@ Added 5 helper columns to identify data quality issues and assist in KPI calcula
 
 - (Column L) missing_delivered_timestamp: Counts total missing delivery timestamps: =COUNTIF(F2:F89317, "").
 
-<br>
 
 ### Exploratory data analysis on cleaned_df_products
 
@@ -103,7 +92,6 @@ Standardized and corrected product category names for consistency and accuracy t
 
 - “fashio_female_clothing” → “fashion_female_clothing”
 
-<br>
 
 ## Tools & Techniques
 - **Kaggle Notebook**: Utilized Python to load files, preview data, and identify missing values and duplicates.
@@ -111,7 +99,6 @@ Standardized and corrected product category names for consistency and accuracy t
 - **SQL Server Express & SSMS**: Wrote SQL queries to demonstrate core project work and KPIs.
 - **Power BI**: Created dashboard visualization and DAX calculations to showcase metrics and KPIs from the data analysis.
 
-<br>
 
 ## Project Structure
 ```
@@ -141,16 +128,12 @@ Order_Fulfillment_Process_Optimization_Project/
 # Note to self: The sections above have been updated; the sections below still need modification.
 ---
 
-<br>
-
 ## Key Questions & Insights  
 - What are the average and distribution of fulfillment times across different shipping methods?  
 - Which stages in the process (order processing, shipping, last-mile delivery) contribute most to delays?  
 - How do product types or regions affect fulfillment efficiency?  
 - Forecast trends in order volume and fulfillment times to predict peak periods and capacity needs.  
 - Recommendations for process improvements based on data-driven insights.
-
-<br>
 
 ## Power BI Dashboard  
 An interactive Power BI dashboard visualizes fulfillment KPIs, bottlenecks, and forecasted trends. It leverages DAX for dynamic calculations such as average delay per stage, percentage of on-time deliveries, and rolling forecast metrics.
@@ -159,8 +142,6 @@ Dashboard features:
 - Drill-down by shipping method, product category, and region.
 - Time series analysis of fulfillment times and delays.
 - Forecast visuals for upcoming order volume and resource planning.
-
-<br>
 
 ## How to Use This Repository
 - Explore raw data under `/1_data/`.

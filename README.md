@@ -19,15 +19,15 @@ License: Provided under Kaggle Terms of Use; all rights belong to the original a
 ## Content Description
 The source dataset includes two folders: train and test. This project uses only the train folder, which contains five CSV files:
 
-- df_Customers.csv: Contains customer identifiers and regional information.
+- df_Customers: Contains customer identifiers and regional information.
 
-- df_OrderItems.csv: Details the individual products within each order, including seller ID, price, and shipping charges.
+- df_OrderItems: Details the individual products within each order, including seller ID, price, and shipping charges.
 
-- df_Orders.csv: Order data such as order ID, order status, and shipping and delivery dates.
+- df_Orders: Order data such as order ID, order status, and shipping and delivery dates.
 
-- df_Payments.csv: Payment information per order, including payment type, installments, and amount.
+- df_Payments: Payment information per order, including payment type, installments, and amount.
 
-- df_Products.csv: Product data including category name and physical measurements.
+- df_Products: Product data including category name and physical measurements.
 
 
 ## Data Cleaning & Preparation

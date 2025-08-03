@@ -52,21 +52,28 @@ The source dataset includes two folders: train and test. This project uses only 
 Added 5 helper columns to identify data quality issues and support KPI calculations:
 
 - (Column H) `order_status_timestamp_issue`: Flags rows where `order_status` = "DELIVERED" but `order_delivered_timestamp` is missing.
-Formula: =IF(AND($C2="DELIVERED", ISBLANK($F2)), "MISSING DELIVERED TIMESTAMP", "OK")
+
+  Formula: =IF(AND($C2="DELIVERED", ISBLANK($F2)), "MISSING DELIVERED TIMESTAMP", "OK")
 
 - (Column I) `count_timestamp_issue`: Counts total flagged rows in column H.
-Result: 6
-Formula: =COUNTIF(H2:H89317, "MISSING DELIVERED TIMESTAMP")
+
+  Result: 6
+
+  Formula: =COUNTIF(H2:H89317, "MISSING DELIVERED TIMESTAMP")
 
 - (Column J) `order_approved_flag`: Flags rows where `order_approved_at` is missing.
-Formula: =IF(ISBLANK(E2), "MISSING", "PRESENT")
+
+  Formula: =IF(ISBLANK(E2), "MISSING", "PRESENT")
 
 - (Column K) `missing_order_approved`: Counts total missing approval timestamps flagged in Column J.
-Result: 9
-Formula: =COUNTIF(J2:J89317, "MISSING")
+
+  Result: 9
+
+  Formula: =COUNTIF(J2:J89317, "MISSING")
 
 - (Column L) `missing_delivered_timestamp`: Counts total missing delivery timestamps in column F.
-Formula: =COUNTIF(F2:F89317, "")
+
+  Formula: =COUNTIF(F2:F89317, "")
 
 
 ### Exploratory data analysis on cleaned_df_products
@@ -78,22 +85,30 @@ Formula: =COUNTIF(F2:F89317, "")
 Added 5 helper columns to identify data quality issues and support KPI calculations:
 
 - (Column G) `concatenation_key`: Combined columns A to F into a single key used in column H to detect duplicate or unique rows.
-Formula: =A2 & "|" & B2 & "|" & C2 & "|" & D2 & "|" & E2 & "|" & F2
+
+  Formula: =A2 & "|" & B2 & "|" & C2 & "|" & D2 & "|" & E2 & "|" & F2
 
 - (Column H) `duplicate_label`: Flags rows as "DUPLICATE" or "UNIQUE" based on the key in column G.
-Formula: =IF(COUNTIF($G$2:G2, G2) > 1, "DUPLICATE", "UNIQUE")
+
+  Formula: =IF(COUNTIF($G$2:G2, G2) > 1, "DUPLICATE", "UNIQUE")
 
 - (Column I) `total_duplicates`: Counts how many rows are marked as "DUPLICATE" in column H.
-Result: 61,685
-Formula: =COUNTIF(H2:H89317, "DUPLICATE")
+
+  Result: 61,685
+
+  Formula: =COUNTIF(H2:H89317, "DUPLICATE")
 
 - (Column J) `total_missing_values`: Counts the total number of blank cells across columns A to F.
-Result: 368
-Formula: =COUNTBLANK(A2:F89317)
+
+  Result: 368
+
+  Formula: =COUNTBLANK(A2:F89317)
 
 - (Column K) `total_missing_category_name`: Counts how many rows have a missing  `product_category_name` in column B.
-Result: 308
-Formula: =COUNTBLANK(B2:B89317)
+
+  Result: 308
+
+  Formula: =COUNTBLANK(B2:B89317)
 
 Standardized and corrected product category names for consistency and accuracy throughout the dataset:
 

@@ -51,7 +51,7 @@ The source dataset includes two folders: train and test. This project uses only 
 
 Added 5 helper columns to identify data quality issues and support KPI calculations:
 
-- (Column H) `order_status_timestamp_issue`: Flags rows where `order_status` = "DELIVERED" but `order_delivered_timestamp` is missing.
+- (Column H) `order_status_timestamp_issue`: Flags rows where `order_status` is "DELIVERED" but `order_delivered_timestamp` is missing.
 
   Formula: =IF(AND($C2="DELIVERED", ISBLANK($F2)), "MISSING DELIVERED TIMESTAMP", "OK")
 
@@ -148,11 +148,10 @@ Standardized and corrected product category names for consistency and accuracy t
 
 
 ## Tools & Techniques
-- **Kaggle Notebook:** Utilized Python to load files, preview data, and identify missing values and duplicates.
-- **Microsoft Excel:** Perform ETL processes and validation using the results from the Python code using Power Query, formulas (e.g., COUNTBLANK, IF), and conditional formatting.
-- **SQL Server Express & SSMS:** Wrote SQL queries to demonstrate core project work and KPIs.
-- **Power BI:** Created dashboard visualization and DAX calculations to showcase metrics and KPIs from the data analysis.
-
+- **Kaggle Notebook:** Used Python to load files, preview data, and identify missing values and duplicates.
+- **Microsoft Excel:** Perform ETL processes and data validation using Power Query, formulas (e.g., COUNTBLANK, IF), and conditional formatting based on results from Python analysis in Kaggle.
+- **SQL Server Express & SSMS:** Wrote SQL queries to demonstrate core project logic and KPI generation.
+- **Power BI:** Built a dashboard and used DAX calculations to visualize metrics and KPIs from the dataset.
 
 ## Project Structure
 ```

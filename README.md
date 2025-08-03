@@ -34,9 +34,7 @@ The source dataset includes two folders: train and test. This project uses only 
 
 - The numeric monetary columns are displayed with two decimal places for clarity, and along with the timestamp columns, they are all right aligned for easier comparison and scanning. Only the product measurement columns were kept as whole integers.
 
-- `Product_category_name` was cleaned up for spelling and grammar consistency.
-
-- Converted all helper columns to static values to improve Excel performance with large datasets (~89,000 rows).
+- Converted helper columns H and J in cleaned_df_orders and columns G and H in cleaned_df_products as static values to improve Excel performance and reduce loading time (~89,000 rows).
 
 
 ### Exploratory data analysis on cleaned_df_orders
@@ -134,7 +132,7 @@ Result: 15
 
 Formula: =COUNTBLANK(F2:F89317)
 
-Standardized and corrected product category names for consistency and accuracy throughout the dataset:
+Standardized and corrected `product_category_name` for consistency and accuracy throughout the dataset:
 
 - “perfumery” → “perfumes”
 

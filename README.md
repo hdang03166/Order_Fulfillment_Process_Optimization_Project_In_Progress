@@ -186,6 +186,15 @@ Order_Fulfillment_Process_Optimization_Project/
 - Forecast trends in order volume and fulfillment times to predict peak periods and capacity needs.  
 - Recommendations for process improvements based on data-driven insights.
 
+## Basket Analysis Attempt
+Explored the potential for basket analysis by identifying pairs of products purchased together within the same order. This was done using SQL joins on the order_items table to count co-occurring product_id pairs.
+
+Result: No significant product pairs were found. The majority of orders contained only a single item, likely due to the short timeframe covered by the dataset.
+
+Conclusion: Basket analysis was not applicable to this dataset due to minimal multi-item purchases.
+
+  - Note: All SQL queries used for analysis are saved in SSMS and exported as .sql files in the repository for transparency and review.
+
 ## Power BI Dashboard  
 An interactive Power BI dashboard visualizes fulfillment KPIs, bottlenecks, and forecasted trends. It leverages DAX for dynamic calculations such as average delay per stage, percentage of on-time deliveries, and rolling forecast metrics.
 

@@ -41,46 +41,61 @@ The source dataset includes two folders: train and test. This project uses only 
 
 ### Exploratory data analysis on cleaned_df_orders
 
-Applied conditional formatting to the following with orange fill and solid outline boarders all around on missing cells for clear visibility:
+- Applied conditional formatting to highlight blank cells with orange fill and solid outline borders for improved visibility and easier identification of missing data:
 
-- Highlighted cells in Column E (`order_approved_at`) where the helper column J (`order_approved_flag`) marks the value as "MISSING" or "PRESENT" with the formula =$J2="Missing".
+  - (Column E) `order_approved_at`: Applied to the range $E$2:$E$89317 with the formula =$J2="MISSING" to highlight flagged rows in helper column J.
 
-- Highlighted cells in Column F (`order_delivered_timestamp`) where `order_status` = "DELIVERED" but the timestamp is blank with the formula =AND($C2="DELIVERED", ISBLANK($F2)).
+  – (Column F) `order_delivered_timestamp`: Applied two formulas to the range $F$2:$F$89317:
+    - =ISBLANK($F2) to highlight all blank timestamps
+    - =AND($C2="DELIVERED", ISBLANK($F2)) to flag missing timestamps for orders marked as "DELIVERED"
 
-- Highlighted all blank cells in Column F (`order_delivered_timestamp`) with the formula =ISBLANK($F2). 
+Added 5 helper columns to identify data quality issues and support KPI calculations:
 
-Added 5 helper columns to identify data quality issues and assist in KPI calculations:
+- (Column H) `order_status_timestamp_issue`: Flags rows where `order_status` = "DELIVERED" but `order_delivered_timestamp` is missing.
+Formula: =IF(AND($C2="DELIVERED", ISBLANK($F2)), "MISSING DELIVERED TIMESTAMP", "OK")
 
-- (Column H) order_status_timestamp_issue: Flags rows where `order_status` = "delivered" but `order_delivered_timestamp` is missing: =IF(AND($C2="delivered", ISBLANK($F2)), "Missing Delivered Timestamp", "OK").
+- (Column I) `count_timestamp_issue`: Counts total flagged rows in column H.
+Result: 6
+Formula: =COUNTIF(H2:H89317, "MISSING DELIVERED TIMESTAMP")
 
-- (Column I) count_timestamp_issue: Counts total rows with delivery timestamp issues flagged in Column H with the formula =COUNTIF(H2:H89317, "Missing Delivered Timestamp").
+- (Column J) `order_approved_flag`: Flags rows where `order_approved_at` is missing.
+Formula: =IF(ISBLANK(E2), "MISSING", "PRESENT")
 
-- (Column J) order_approved_flag: Flags missing order_approved_at timestamps: =IF(ISBLANK(E2), "MISSING", "PRESENT").
+- (Column K) `missing_order_approved`: Counts total missing approval timestamps flagged in Column J.
+Result: 9
+Formula: =COUNTIF(J2:J89317, "MISSING")
 
-- (Column K) missing_order_approved: Counts total missing approval timestamps flagged in Column J: =COUNTIF(J2:J89317, "Missing").
-
-- (Column L) missing_delivered_timestamp: Counts total missing delivery timestamps: =COUNTIF(F2:F89317, "").
+- (Column L) `missing_delivered_timestamp`: Counts total missing delivery timestamps in column F.
+Formula: =COUNTIF(F2:F89317, "")
 
 
 ### Exploratory data analysis on cleaned_df_products
 
-- Identified 14 entries (13 duplicates) of the same product_id (ZX9HL81JFVR2) in the Toys category. These entries lacked product measurement data. The rows were kept to preserve integrity across datasets.
+- Identified 14 entries (13 duplicates) of the same product_id (ZX9HL81JFVR2) in the Toys category. These rows had missing product measurement data, but were retained to preserve integrity across datasets.
 
 - Applied conditional formatting to the range $B$2:$F$89317 with the formula =ISBLANK(B2) to highlight blank cells. Blank cells are formatted with orange fill and solid outline borders for improved visibility and easier identification of missing data.
 
-Added 5 helper columns to identify data quality issues and assist in KPI calculations:
+Added 5 helper columns to identify data quality issues and support KPI calculations:
 
-- (Column G) concatenation_key: Combined columns A to F into a single key for column H to detect duplicate or unique rows with the formula =A2 & "|" & B2 & "|" & C2 & "|" & D2 & "|" & E2 & "|" & F2.
+- (Column G) `concatenation_key`: Combined columns A to F into a single key used in column H to detect duplicate or unique rows.
+Formula: =A2 & "|" & B2 & "|" & C2 & "|" & D2 & "|" & E2 & "|" & F2
 
-- (Column H) duplicate_label: Flags rows as "DUPLICATE" or "UNIQUE" based on the concatenation key in column G with the formula =IF(COUNTIF($G$2:G2, G2) > 1, "DUPLICATE", "UNIQUE").
+- (Column H) `duplicate_label`: Flags rows as "DUPLICATE" or "UNIQUE" based on the key in column G.
+Formula: =IF(COUNTIF($G$2:G2, G2) > 1, "DUPLICATE", "UNIQUE")
 
-- (Column I) total_duplicates: Counts how many duplicate rows exist in column H, resulting in a total of 61685, with the formula =COUNTIF(H2:H89317, "DUPLICATE").
+- (Column I) `total_duplicates`: Counts how many rows are marked as "DUPLICATE" in column H.
+Result: 61,685
+Formula: =COUNTIF(H2:H89317, "DUPLICATE")
 
-- (Column J) total_missing_values: Counts the number of missing values in the dataset, resulting in a total of 368, with the formula =COUNTBLANK(A2:F89317).
+- (Column J) `total_missing_values`: Counts the total number of blank cells across columns A to F.
+Result: 368
+Formula: =COUNTBLANK(A2:F89317)
 
-- (Column K) total_missing_category_name: Counts the number of rows with missing product category name, resulting in 308, with the formula =COUNTBLANK(B2:B89317).
+- (Column K) `total_missing_category_name`: Counts how many rows have a missing  `product_category_name` in column B.
+Result: 308
+Formula: =COUNTBLANK(B2:B89317)
 
-Standardized and corrected product category names for consistency and accuracy through the table:
+Standardized and corrected product category names for consistency and accuracy throughout the dataset:
 
 - “perfumery” → “perfumes”
 
@@ -94,10 +109,10 @@ Standardized and corrected product category names for consistency and accuracy t
 
 
 ## Tools & Techniques
-- **Kaggle Notebook**: Utilized Python to load files, preview data, and identify missing values and duplicates.
-- **Microsoft Excel**: Perform ETL processes and validation using the results from the Python code using Power Query, formulas (e.g., COUNTBLANK, IF), and conditional formatting.
-- **SQL Server Express & SSMS**: Wrote SQL queries to demonstrate core project work and KPIs.
-- **Power BI**: Created dashboard visualization and DAX calculations to showcase metrics and KPIs from the data analysis.
+- **Kaggle Notebook:** Utilized Python to load files, preview data, and identify missing values and duplicates.
+- **Microsoft Excel:** Perform ETL processes and validation using the results from the Python code using Power Query, formulas (e.g., COUNTBLANK, IF), and conditional formatting.
+- **SQL Server Express & SSMS:** Wrote SQL queries to demonstrate core project work and KPIs.
+- **Power BI:** Created dashboard visualization and DAX calculations to showcase metrics and KPIs from the data analysis.
 
 
 ## Project Structure

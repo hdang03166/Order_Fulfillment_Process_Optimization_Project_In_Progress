@@ -104,11 +104,35 @@ Added 5 helper columns to identify data quality issues and support KPI calculati
 
   Formula: =COUNTBLANK(A2:F89317)
 
-- (Column K) `total_missing_category_name`: Counts how many rows have a missing  `product_category_name` in column B.
+- (Column K) `missing_category_name`: Counts how many rows have a missing  `product_category_name` in column B.
 
   Result: 308
 
   Formula: =COUNTBLANK(B2:B89317)
+
+- (Column L) `missing_product_weight_g`: Counts how many rows are blank in column C.
+
+Result: 15
+
+Formula: =COUNTBLANK(C2:C89317)
+
+- (Column M) `missing_product_length_cm`: Counts how many rows are blank in column D.
+
+Result: 15
+
+Formula: =COUNTBLANK(D2:D89317)
+  
+- (Column N) `missing_product_height_cm`: Counts how many rows are blank in column E.
+
+Result: 15
+
+Formula: =COUNTBLANK(E2:E89317)
+
+- (Column O) `missing_product_width_cm`: Counts how many rows are blank in column F.
+
+Result: 15
+
+Formula: =COUNTBLANK(F2:F89317)
 
 Standardized and corrected product category names for consistency and accuracy throughout the dataset:
 
